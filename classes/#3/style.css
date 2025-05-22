@@ -1,0 +1,46 @@
+* {
+    padding: 0%;
+    margin: 0;
+}
+.introduction{
+    margin-top: 2rem;
+    text-align: center;
+}
+.banner{
+    width: 80%;
+    border-radius: 25px;
+}
+nav {
+    background-color: grey;
+    display: flex;
+    justify-content: space-between;
+}
+.home {
+    display: flex;
+    background-color: green;
+
+}
+.pages{
+    list-style: none;
+    background-color: brown;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+.pages li a{
+    text-decoration: none;
+    color: inherit;
+}
+.card{
+    background-color: white;
+    position: relative;
+    border-radius: 20px;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    margin-top: -5rem;
+    left: 25%;
+    width: 50%;
+}
+.card h1{
+    font-size: 40px;
+}
