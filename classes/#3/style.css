@@ -110,6 +110,7 @@ main {
     padding-left: 6.5vw;
     gap: 2rem;
     justify-items: center;
+    padding-bottom: 2rem;
 }
 .services img {
     width: 7rem;
@@ -204,6 +205,7 @@ footer form p{
     padding-left: 2rem;
     padding-right: 2rem;
     text-align: center;
+    font-size: 17px;
 }
 footer form a{
     color: rgb(116,116,116);
@@ -213,6 +215,7 @@ footer form a{
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 1rem;
+    font-size: 17px;
 }
 .inputs label{
     display: block;
@@ -224,6 +227,7 @@ footer form a{
 }
 .textarea{
     gap: 2rem;
+    font-size: 17px;
 }
 .textarea label{
     display: block;
@@ -242,4 +246,5 @@ footer form button{
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
     border-radius: 20px;
+    cursor: pointer;
 }
