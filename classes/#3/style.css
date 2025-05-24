@@ -130,3 +130,63 @@ main {
     line-height: 30px;
     color: rgb(50, 50, 50);
 }
+
+footer{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    justify-items: center;
+    color: rgb(228, 224, 224);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+footer section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;    
+    background-color: rgba(40,41,41,255);
+    align-items: center;
+}
+.contactUs{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    height: 100%;
+}
+.contactUs p, .contactUs a{
+    margin-bottom: .5rem;
+    color: rgb(228, 224, 224);
+}
+footer h2{
+    font-size: 55px;
+    font-weight: 200;
+}
+footer svg{
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.sendUsAnGraph{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}
+.office{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}
+.phone{
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    margin-bottom: .5rem;
+}
+
+footer form{
+    background-color: rgba(203,202,202,255);
+    justify-items: center;
+}
