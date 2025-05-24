@@ -2,13 +2,15 @@
     padding: 0%;
     margin: 0;
 }
+
 nav {
     background-color: white;
     display: flex;
     justify-content: space-between;
     padding: 1rem;
 }
-.home{
+
+.home {
     text-decoration: none;
     color: gainsboro;
     font-weight: bolder;
@@ -16,7 +18,7 @@ nav {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     padding-left: 15%;
 }
-.pages{
+.pages {
     list-style: none;
     display: flex;
     gap: 1rem;
@@ -25,23 +27,24 @@ nav {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     padding-right: 15%;
 }
-.pages li a{
+.pages li a {
     text-decoration: none;
     color: inherit;
 }
+
 main {
     background-color: gainsboro;
 }
-.introduction{
+
+.introduction {
     padding-top: 2rem;
     text-align: center;
 }
-.banner{
+.banner {
     width: 60vw;
     border-radius: 25px;
 }
-
-.card{
+.card {
     background-color: white;
     position: relative;
     border-radius: 20px;
@@ -51,13 +54,13 @@ main {
     left: 25%;
     width: 50%;
 }
-.card h1{
+.card h1 {
     font-size: 4rem;
     font-weight: 500;
     padding-right: 3rem;
     padding-left: 3rem;
 }
-.card p{
+.card p {
     margin-top: 1rem;
     text-align: center;
     color: rgb(50, 50, 50);
@@ -66,9 +69,9 @@ main {
     line-height: 35px;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-.card button{
+.card button {
     margin-top: 1rem;
-    background-color: rgba(170,179,208,255);
+    background-color: rgba(170, 179, 208, 255);
     padding-left: 2.5rem;
     padding-right: 2.5rem;
     border-style: none;
@@ -76,4 +79,54 @@ main {
     padding-top: 1rem;
     padding-bottom: 1rem;
     cursor: pointer;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2.5rem;
+}
+.title h2 {
+    font-size: 40px;
+    font-weight: 400;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.title p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 1rem;
+    padding-right: 28vw;
+    padding-left: 28vw;
+    line-height: 35px;
+    text-align: center;
+    color: rgb(50, 50, 50);
+}
+
+.services {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-top: 4rem;
+    padding-right: 6.5vw;
+    padding-left: 6.5vw;
+    gap: 2rem;
+    justify-items: center;
+}
+.services img {
+    width: 7rem;
+    mix-blend-mode: multiply;
+}
+.services div {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 90%;
+}
+.services h3 {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 30px;
+}
+.services p {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 30px;
+    color: rgb(50, 50, 50);
 }
