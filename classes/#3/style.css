@@ -2,35 +2,45 @@
     padding: 0%;
     margin: 0;
 }
+nav {
+    background-color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.home{
+    text-decoration: none;
+    color: gainsboro;
+    font-weight: bolder;
+    font-size: 20px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 10%;
+}
+.pages{
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+    color: gray;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-right: 10%;
+}
+.pages li a{
+    text-decoration: none;
+    color: inherit;
+}
+main {
+    background-color: gainsboro;
+}
 .introduction{
-    margin-top: 2rem;
+    padding-top: 2rem;
     text-align: center;
 }
 .banner{
     width: 80%;
     border-radius: 25px;
 }
-nav {
-    background-color: grey;
-    display: flex;
-    justify-content: space-between;
-}
-.home {
-    display: flex;
-    background-color: green;
 
-}
-.pages{
-    list-style: none;
-    background-color: brown;
-    display: flex;
-    gap: 1rem;
-    justify-content: space-between;
-}
-.pages li a{
-    text-decoration: none;
-    color: inherit;
-}
 .card{
     background-color: white;
     position: relative;
