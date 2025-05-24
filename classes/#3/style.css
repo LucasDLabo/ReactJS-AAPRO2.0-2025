@@ -14,16 +14,16 @@ nav {
     font-weight: bolder;
     font-size: 20px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    padding-left: 10%;
+    padding-left: 15%;
 }
 .pages{
     list-style: none;
     display: flex;
     gap: 1rem;
     justify-content: space-between;
-    color: gray;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding-right: 10%;
+    color: rgb(73, 73, 73);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding-right: 15%;
 }
 .pages li a{
     text-decoration: none;
@@ -37,7 +37,7 @@ main {
     text-align: center;
 }
 .banner{
-    width: 80%;
+    width: 60vw;
     border-radius: 25px;
 }
 
@@ -45,12 +45,35 @@ main {
     background-color: white;
     position: relative;
     border-radius: 20px;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    margin-top: -5rem;
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    margin-top: -10rem;
     left: 25%;
     width: 50%;
 }
 .card h1{
-    font-size: 40px;
+    font-size: 4rem;
+    font-weight: 500;
+    padding-right: 3rem;
+    padding-left: 3rem;
+}
+.card p{
+    margin-top: 1rem;
+    text-align: center;
+    color: rgb(50, 50, 50);
+    padding-right: 2rem;
+    padding-left: 2rem;
+    line-height: 35px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.card button{
+    margin-top: 1rem;
+    background-color: rgba(170,179,208,255);
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    border-style: none;
+    border-radius: 30px;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    cursor: pointer;
 }
