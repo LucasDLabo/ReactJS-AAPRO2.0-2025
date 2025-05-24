@@ -187,6 +187,59 @@ footer svg{
 }
 
 footer form{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     background-color: rgba(203,202,202,255);
-    justify-items: center;
+    justify-content: center;
+    align-items: center;
+    color: rgba(40,41,41,255);
+    gap: 1rem;
+}
+footer form h4{
+    font-size: 45px;
+    font-weight: 200;
+}
+footer form p{
+    padding-left: 2rem;
+    padding-right: 2rem;
+    text-align: center;
+}
+footer form a{
+    color: rgb(116,116,116);
+}
+.inputs{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+.inputs label{
+    display: block;
+}
+.inputs input{
+    background-color: transparent;
+    padding: .5rem;
+    border-style: none none solid none;
+}
+.textarea{
+    gap: 2rem;
+}
+.textarea label{
+    display: block;
+}
+.textarea textarea{
+    width: 100%;
+    height: 15vh;
+    background-color: transparent;
+    border-style: none none solid none;
+    margin-bottom: 1rem;
+}
+footer form button{
+    background-color: rgba(170, 179, 208, 255);
+    border: none;
+    width: 100%;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-radius: 20px;
 }
