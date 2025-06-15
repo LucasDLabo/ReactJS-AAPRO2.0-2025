@@ -16,7 +16,7 @@ function NewsCard( { title, description, source, imgURL, imgALT, date} ){
                 <p className="text-justify mb-1.5">{description}</p>
                 <div className="flex h-full items-end justify-between">
                     <p className="text-xs font-medium text-gray-400">{date}</p>
-                    <i className="text-sm"><a href={source} target="_blank">ℹ Ver noticia completa...</a></i>
+                    <i className="text-sm"><a href={source} target="_blank" className="link">ℹ Ver noticia completa...</a></i>
                 </div>
                 
             </div>

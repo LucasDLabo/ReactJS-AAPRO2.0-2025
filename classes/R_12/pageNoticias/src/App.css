@@ -1,22 +1,49 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
-#root{
-  width: 100vw;
-}
-main {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
 
-body {
-  @apply bg-white text-black dark:bg-[#202020] dark:text-white ;
-}
 
-a{
+
+@layer base{
+  :root {
+    font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  }
+
+  #root{
+    @apply w-[100vw];
+  }
+
+  body {
+    @apply m-0 flex place-items-center min-w-[320px] min-h-[100vh]  bg-white text-black dark:bg-[#202020] dark:text-white ;
+  }
+
+  main{
+    @apply m-0 max-w-[1280px] p-2 text-center;
+  }
+
+  h1{
+    @apply text-5xl leading-tight;
+  }
+
+  a{
   @apply dark:text-[#8d92f0];
+  }
+  a:hover{
+    @apply dark:text-[#afb2ef];
+  }
+
+  button {
+    @apply bg-amber-400 border-solid border-2 border-transparent py-2 px-4 cursor-pointer text-base focus:outline-black focus-visible:outline-black;
+  }
+
 }
-a:hover{
-  @apply dark:text-[#afb2ef];
+
+@layer components{
+  .link {
+  @apply font-bold text-[#4349b7] decoration-inherit;
+  }
+  .link:hover {
+    @apply text-[#6c73f6];
+  }
 }
+
+
