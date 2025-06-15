@@ -1,11 +1,11 @@
 function Header(){
     return(
-        <header className="flex bg-amber-400">
-            <p>Portal Noticias</p>
+        <header className="w-full flex bg-amber-400 justify-between">
+            <p>Portal<b>NOTICIAS</b></p>
             <ul>
-                <li>Noticios</li>
+                <li>Noticias</li>
                 <li>Contacto</li>
-                <li>Sobre nosotros</li>
+                <li>Sobre nosotros para que aprendas</li>
             </ul>
         </header>
     )
