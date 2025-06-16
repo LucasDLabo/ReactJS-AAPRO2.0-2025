@@ -71,4 +71,13 @@ export default [
         imgALT: "Imagen de un padre caminando con sus hijos",
         date: "Junio 15"
     },
+    {
+        id: 8,
+        title: "",
+        description: "",
+        source: "",
+        imgURL: "",
+        imgALT: "",
+        date: ""
+    }
 ]

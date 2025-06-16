@@ -11,7 +11,7 @@ function App() {
     <>
       <Header />
       <main>
-        <TitleLastNews></TitleLastNews>
+        <TitleLastNews />
         <CardContainer>
           {newsData.map( (news)=>(
             <NewsCard 
