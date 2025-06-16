@@ -6,7 +6,7 @@ export default [
         source: "https://www.diarioelinformante.com.ar/nota-80534_estafaron-a-una-mujer-de-77-aos-en-80000-pesos",
         imgURL: "https://www.diarioelinformante.com.ar/fotos6/no_1weh7pvlr18g5deestafa.png",
         imgALT: "Imagen de mujer mayor",
-        date: "Abril 10"
+        date: "Junio 10"
     },
     {
         id: 1,
@@ -15,7 +15,7 @@ export default [
         source: "https://www.diarioelinformante.com.ar/nota-80535_detuvieron-a-un-sujeto-que-amenaz-a-una-inspectora",
         imgURL: "https://www.diarioelinformante.com.ar/fotos3/conmarca53711",
         imgALT: "Imagen de el tipo de moto robada Honda Twister",
-        date: "Abril 11"
+        date: "Junio 11"
     },
     {
         id: 2,
@@ -24,7 +24,7 @@ export default [
         source: "https://www.diarioelinformante.com.ar/nota-80532_dos-vehculos-protagonizaron-un-choque-en-ameghino-y-roca",
         imgURL: "",
         imgALT: "Imagen no encontrada",
-        date: "Abril 11"
+        date: "Junio 11"
     },
     {
         id: 3,
@@ -33,7 +33,7 @@ export default [
         source: "https://www.diarioelinformante.com.ar/nota-80562_un-automovilista-colision-con-un-peatn-y-el-vehculo-termin-incrustado-en-el-ex-palacio-municipal#",
         imgURL: "https://www.diarioelinformante.com.ar/fotos3/conmarca53740",
         imgALT: "Imagen del accidente automovilístico",
-        date: "Abril 14"
+        date: "Junio 14"
     },
     {
         id: 4,
@@ -42,6 +42,33 @@ export default [
         source: "https://www.diarioelinformante.com.ar/nota-80560_hallaron-una-camioneta-robada-cuyo-conductor-abandon-tras-colisionar-con-un-tapial",
         imgURL: "https://www.diarioelinformante.com.ar/fotos3/conmarca53738",
         imgALT: "Imagen de la camioneta Chevrolet S10 hayada",
-        date: "Abril 14"
-    }
+        date: "Junio 14"
+    },
+    {
+        id: 5,
+        title: "Rompieron la vidriera y robaron en una perfumería ",
+        description: "Una mujer de 54 años, propietaria de una perfumería ubicada en Savio al 1200, fue víctima de un robo en su comercio. Según manifestó en la denuncia, alrededor de las 8:00 se hizo presente en el local y constató que habían dañado las rejas y los vidrios de la vidriera, para luego sustraer artículos que estaban exhibidos allí.",
+        source: "https://www.diarioelinformante.com.ar/nota-80564_rompieron-la-vidriera-y-robaron-en-una-perfumera-",
+        imgURL: "https://www.diarioelinformante.com.ar/fotos6/no_7c11t2kkbb0wo4i4_de_febrero_20250614_211829_0000.png",
+        imgALT: "Imagen de una vidriera destrozada",
+        date: "Junio 14"
+    },
+    {
+        id: 6,
+        title: "Ramallo: volcó un camión en la Ruta 9",
+        description: "Un camionero sufrió un accidente en horas de la madrugada de este sábado mientras circulaba por Ruta 9, a la altura de la Ruta 51. Según la información policial, el conductor de 30 años perdió el control del vehículo y terminó volcando.",
+        source: "https://www.diarioelinformante.com.ar/nota-80563_ramallo-volc-un-camin-en-la-ruta-9#",
+        imgURL: "https://www.diarioelinformante.com.ar/fotos6/no_yyocf05ekq8ljmz4_de_febrero_20250614_110809_0000.png",
+        imgALT: "Imagen del camión volcado",
+        date: "Junio 14"
+    },
+    {
+        id: 7,
+        title: "Domingo 15 de junio: Día del Padre",
+        description: "El Día del Padre este año se conmemora el 15 de junio en la Argentina, una fecha orientada a celebrar a todas las figuras paternas en familia. Se trata de una costumbre que se festeja el tercer domingo de junio, en el que muchos aprovechan para agasajar, realizar regalos y reunirse a compartir un momento con sus seres queridos. Esta efeméride también se lleva a cabo en países como Estados Unidos, Canadá, China, Colombia, Francia, Grecia, India, México, Paraguay, Perú, Reino Unido, Sudáfrica, Turquía, entre otros.",
+        source: "https://www.diarioelinformante.com.ar/nota-80567_domingo-15-de-junio-da-del-padre",
+        imgURL: "https://www.diarioelinformante.com.ar/fotos6/no_z6mymx75bs58ubfdia_del_padre.jpeg",
+        imgALT: "Imagen de un padre caminando con sus hijos",
+        date: "Junio 15"
+    },
 ]
