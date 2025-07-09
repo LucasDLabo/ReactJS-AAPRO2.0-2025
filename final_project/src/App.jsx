@@ -5,16 +5,26 @@ import exampleData from './utils/data.js'
 
 function App() {
 
+  const [appoint, setAppoint] = useState(exampleData);
+
+  function deleteAppoint(id){
+    console.log(`id pasado ${id} - Turno borrado`)
+    setAppoint(appoint.filter((i) => i.id !== id));
+  }
+
   return (
     <>
       {
-        exampleData.map( (data)=> (
+        appoint.map( (data)=> (
           
           <Appointment 
             key={data.id}
+            id={data.id}
             name={data.name}
             date={data.date}
             specialty={data.specialty}
+
+            onDelete={deleteAppoint}
           />
 
         ) )

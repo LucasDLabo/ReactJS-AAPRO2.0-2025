@@ -1,4 +1,4 @@
-function Appointment( {id, name, date, specialty} ){
+function Appointment( {id, name, date, specialty, onDelete} ){
     return (
         <>
             <ul>
@@ -7,6 +7,7 @@ function Appointment( {id, name, date, specialty} ){
                 <li>{date}</li>
                 <li>{specialty}</li>
             </ul>
+            <button className="cursor-pointer bg-red-200" onClick={() => onDelete(id)}>Delete❌</button>
             <hr />
         </>
     )

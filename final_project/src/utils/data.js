@@ -6,13 +6,13 @@ export default[
         specialty: 'Odontología',
     },
     {
-        id: 2,
+        id: 1,
         name: 'Esteban Gomez',
         date: '8 junio',
         specialty: 'Consulta medica',
     },
     {
-        id: 3,
+        id: 2,
         name: 'Jorge Miguel',
         date: '8 junio',
         specialty: 'Oftamología',
