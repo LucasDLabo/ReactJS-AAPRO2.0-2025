@@ -3,12 +3,13 @@ import { useState } from 'react'
 function AppointmentForm( {onCreate} ){
 
     const [name, setName] = useState('');
-    const [datetime, setDatetime] = useState('');
+    const [date, setDatetime] = useState('');
+    const [time, setTime] = useState('');
     const [specialty, setSpecialty] = useState('');
 
     const submit = (e) => {
         e.preventDefault();
-        onCreate( {name, datetime, specialty});
+        onCreate( {name, date, time, specialty});
     }
     return(
         <>
@@ -21,11 +22,21 @@ function AppointmentForm( {onCreate} ){
                         onChange={(e) => setName(e.target.value)}
                     />
 
-                    <label htmlFor="selectedDate">Select Date and Time: </label>
+                    <label htmlFor="selectedDate">Select Date: </label>
                     <input type="datetime-local" name="selectedDate" id="selectedDate" className="bg-gray-200"
-                        value={datetime}
+                        value={date}
                         onChange={(e) => setDatetime(e.target.value)}
                     />
+
+                    <label htmlFor="selectedTime">Select Time: </label>
+                    <select name="selectedTime" id="selectedTime"
+                        value={time}
+                        onChange={(e) => setTime(e.target.value)}
+                    >
+                        <option value="10">10:00</option>
+                        <option value="1030">10:30</option>
+                        <option value="11">11:00</option>
+                    </select>
 
                     <label htmlFor="selectedSpecialty">Select Specialty: </label>
                     <select name="selectedSpecialty" id="selectedSpecialty"

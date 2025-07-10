@@ -13,9 +13,9 @@ function App() {
     setAppoint(appoint.filter((i) => i.id !== id));
   }
 
-  function createAppoint( {name, datetime, specialty} ){
+  function createAppoint( {name, date, time, specialty} ){
     const newAppoint = {
-      id: Date.now(), name, datetime, specialty
+      id: Date.now(), name, date, time, specialty
     };
     setAppoint([newAppoint, ...appoint]);
 
@@ -33,6 +33,7 @@ function App() {
             id={data.id}
             name={data.name}
             date={data.date}
+            time={data.time}
             specialty={data.specialty}
 
             onDelete={deleteAppoint}
