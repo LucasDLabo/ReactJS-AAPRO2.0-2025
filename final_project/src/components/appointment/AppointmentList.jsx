@@ -1,4 +1,4 @@
-function Appointment( {id, name, date, specialty, onDelete} ){
+function AppointmentList( {id, name, date, specialty, onDelete} ){
     return (
         <>
             <ul>
@@ -13,4 +13,4 @@ function Appointment( {id, name, date, specialty, onDelete} ){
     )
 }
 
-export default Appointment
+export default AppointmentList
