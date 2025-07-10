@@ -23,7 +23,7 @@ function AppointmentForm( {onCreate} ){
                     />
 
                     <label htmlFor="selectedDate">Select Date: </label>
-                    <input type="datetime-local" name="selectedDate" id="selectedDate" className="bg-gray-200"
+                    <input type="date" name="selectedDate" id="selectedDate" className="bg-gray-200"
                         value={date}
                         onChange={(e) => setDatetime(e.target.value)}
                     />
