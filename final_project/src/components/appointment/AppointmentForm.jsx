@@ -1,6 +1,6 @@
 import { use, useState } from 'react'
 
-function AppointmentForm( {onCreate, specialties, timetables} ){
+function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
 
     const [name, setName] = useState('');
     const [date, setDatetime] = useState('');
@@ -9,9 +9,14 @@ function AppointmentForm( {onCreate, specialties, timetables} ){
 
     const submit = (e) => {
         e.preventDefault();
-        // Validación simple
+
         if (!name.trim() || !date.trim() || !time.trim() || !specialty.trim()) {
             alert('Make sure all fields are completed!');
+            return;
+        }
+
+        if(appoint.some((i) => i.date == date) && appoint.some((i) => i.time == time) && appoint.some((i) => i.specialty == specialty)){
+            alert('Date already appointed!');
             return;
         }
 

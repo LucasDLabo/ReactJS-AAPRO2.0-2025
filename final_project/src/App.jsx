@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>  
-      <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables}></AppointmentForm>
+      <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
 
       {
         appoint.map( (data)=> (
