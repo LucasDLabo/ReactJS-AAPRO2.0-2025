@@ -48,7 +48,7 @@ function AppointmentForm( {onCreate, specialties} ){
                         <option hidden value="">Choose an specialty</option>
                         {
                             specialties.map( (specialty) => 
-                                <option value={specialty.name}>{specialty.name}</option>
+                                <option value={specialty.name} key={specialty.id}>{specialty.name}</option>
                             )
                         }
                     </select>
