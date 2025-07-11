@@ -9,6 +9,12 @@ function AppointmentForm( {onCreate, specialties, timetables} ){
 
     const submit = (e) => {
         e.preventDefault();
+        // Validación simple
+        if (!name.trim() || !date.trim() || !time.trim() || !specialty.trim()) {
+            alert('Make sure all fields are completed!');
+            return;
+        }
+
         onCreate( {name, date, time, specialty});
     }
     return(
