@@ -1,6 +1,6 @@
-import { useState } from 'react'
+import { use, useState } from 'react'
 
-function AppointmentForm( {onCreate} ){
+function AppointmentForm( {onCreate, specialties} ){
 
     const [name, setName] = useState('');
     const [date, setDatetime] = useState('');
@@ -39,13 +39,18 @@ function AppointmentForm( {onCreate} ){
                     </select>
 
                     <label htmlFor="selectedSpecialty">Select Specialty: </label>
-                    <select name="selectedSpecialty" id="selectedSpecialty"
+                    <select 
+                        name="selectedSpecialty" 
+                        id="selectedSpecialty"
                         value={specialty}
                         onChange={(e) => setSpecialty(e.target.value)}
                     >
-                        <option value="Example1">Example1</option>
-                        <option value="Example2">Example2</option>
-                        <option value="Example3">Example3</option>
+                        <option hidden value="">Choose an specialty</option>
+                        {
+                            specialties.map( (specialty) => 
+                                <option value={specialty.name}>{specialty.name}</option>
+                            )
+                        }
                     </select>
 
                     <button type="submit" className="bg-blue-300 cursor-pointer">Create</button>

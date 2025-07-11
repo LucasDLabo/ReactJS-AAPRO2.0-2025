@@ -3,9 +3,9 @@ import './Style.css'
 import AppointmentList from './components/appointment/AppointmentList.jsx'
 import AppointmentForm from './components/appointment/AppointmentForm.jsx'
 import exampleData from './utils/data.js'
+import specialties from './utils/specialties.js'
 
 function App() {
-
   const [appoint, setAppoint] = useState(exampleData);
 
   function deleteAppoint(id){
@@ -23,7 +23,7 @@ function App() {
 
   return (
     <>  
-      <AppointmentForm onCreate={createAppoint}></AppointmentForm>
+      <AppointmentForm onCreate={createAppoint} specialties={specialties}></AppointmentForm>
 
       {
         appoint.map( (data)=> (
