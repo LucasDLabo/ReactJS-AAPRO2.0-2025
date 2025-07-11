@@ -1,6 +1,6 @@
 import { use, useState } from 'react'
 
-function AppointmentForm( {onCreate, specialties} ){
+function AppointmentForm( {onCreate, specialties, timetables} ){
 
     const [name, setName] = useState('');
     const [date, setDatetime] = useState('');
@@ -33,9 +33,12 @@ function AppointmentForm( {onCreate, specialties} ){
                         value={time}
                         onChange={(e) => setTime(e.target.value)}
                     >
-                        <option value="10">10:00</option>
-                        <option value="1030">10:30</option>
-                        <option value="11">11:00</option>
+                        <option hidden value="">Choose an hour</option>
+                        {
+                            timetables.map( (time) => 
+                                <option value={time.time} key={time.id}>{time.time}</option>
+                            )
+                        }
                     </select>
 
                     <label htmlFor="selectedSpecialty">Select Specialty: </label>

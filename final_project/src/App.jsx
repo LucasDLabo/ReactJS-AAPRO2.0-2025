@@ -4,6 +4,7 @@ import AppointmentList from './components/appointment/AppointmentList.jsx'
 import AppointmentForm from './components/appointment/AppointmentForm.jsx'
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
+import timetables from './utils/timetables.js'
 
 function App() {
   const [appoint, setAppoint] = useState(exampleData);
@@ -23,7 +24,7 @@ function App() {
 
   return (
     <>  
-      <AppointmentForm onCreate={createAppoint} specialties={specialties}></AppointmentForm>
+      <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables}></AppointmentForm>
 
       {
         appoint.map( (data)=> (
