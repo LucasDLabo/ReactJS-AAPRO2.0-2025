@@ -21,7 +21,7 @@ function App() {
 
     function createAppoint( {name, date, time, specialty} ){
         const newAppoint = {
-        id: Date.now(), name, date, time, specialty
+        id: appoint.at(0).id + 1, name, date, time, specialty
         };
         setAppoint([newAppoint, ...appoint]);
         localStorage.setItem('appointments', JSON.stringify([newAppoint, ...appoint]));

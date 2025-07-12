@@ -1,6 +1,6 @@
 export default[
     {
-        id: 0,
+        id: 2,
         name: 'Matias Rojas',
         date: '2025-07-04',
         time: '9:00',
@@ -14,7 +14,7 @@ export default[
         specialty: 'Ophthalmology',
     },
     {
-        id: 2,
+        id: 0,
         name: 'Jorge Miguel',
         date: '2025-07-09',
         time: '10:00',
