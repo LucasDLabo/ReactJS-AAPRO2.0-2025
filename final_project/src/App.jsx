@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './Style.css'
 import AppointmentList from './components/appointment/AppointmentList.jsx'
+import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
 import AppointmentForm from './components/appointment/AppointmentForm.jsx'
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
@@ -29,22 +30,27 @@ function App() {
 
     return (
         <>  
-            <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+            <main>
+                <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
 
-            {
-                appoint.map( (data)=> (
-                <AppointmentList 
-                    key={data.id}
-                    id={data.id}
-                    name={data.name}
-                    date={data.date}
-                    time={data.time}
-                    specialty={data.specialty}
+                <h2 className='title'>Appointment List</h2>
+                <AppointmentListContainer>
+                {
+                    appoint.map( (data)=> (
+                    <AppointmentList 
+                        key={data.id}
+                        id={data.id}
+                        name={data.name}
+                        date={data.date}
+                        time={data.time}
+                        specialty={data.specialty}
 
-                    onDelete={deleteAppoint}
-                />
-                ) )
-            }
+                        onDelete={deleteAppoint}
+                    />
+                    ) )
+                }
+                </AppointmentListContainer>
+            </main>
         </>
     )
 }

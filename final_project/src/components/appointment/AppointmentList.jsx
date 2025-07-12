@@ -11,14 +11,18 @@ function AppointmentList( {id, name, date, time, specialty, onDelete} ){
 
     return (
         <>
-            <ul>
-                <li><i>Order number #{id}</i></li>
-                <li>Patient name: {name}</li>
-                <li>Date: {formatedDate} at {time}hs</li>
-                <li>Medical field: {specialty}</li>
-            </ul>
-            <button title="Cancel Appointment" className="cursor-pointer bg-red-200" onClick={() => onDelete(id)}>Cancel</button>
-            <hr />
+            <div className="w-72 rounded-md bg-indigo-50 p-4 shadow-2xl shadow-gray-400">
+                <ul className="flex min-h-52 flex-col">
+                    <li className="text-xl font-bold text-gray-500 italic">Order number #{id}</li>
+                    <hr className="text-gray-500"/>
+                    <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
+                        <li><b className="text-blue-900">Patient name:</b> {name}</li>
+                        <li><b className="text-blue-900">Date:</b> {formatedDate} at {time}hs</li>
+                        <li><b className="text-blue-900">Medical field:</b> {specialty}</li>
+                    </div>
+                    <li><button title="Cancel Appointment" className="btn-delete text-sm" onClick={() => onDelete(id)}>Cancel</button></li>
+                </ul>
+            </div>
         </>
     )
 }

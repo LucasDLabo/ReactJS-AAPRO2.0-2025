@@ -1,2 +1,14 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+
+main{
+    @apply px-10
+}
+@layer components{
+    .title{
+        @apply mb-5 text-4xl font-extrabold text-blue-800
+    }
+    .btn-delete{
+        @apply cursor-pointer rounded bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-400;
+    }
+}
