@@ -12,13 +12,12 @@ function AppointmentList( {id, name, date, time, specialty, onDelete} ){
     return (
         <>
             <ul>
-                <li>{id}</li>
-                <li>{name}</li>
-                <li>{formatedDate}</li>
-                <li>{time}</li>
-                <li>{specialty}</li>
+                <li><i>Order number #{id}</i></li>
+                <li>Patient name: {name}</li>
+                <li>Date: {formatedDate} at {time}hs</li>
+                <li>Medical field: {specialty}</li>
             </ul>
-            <button className="cursor-pointer bg-red-200" onClick={() => onDelete(id)}>Delete❌</button>
+            <button title="Cancel Appointment" className="cursor-pointer bg-red-200" onClick={() => onDelete(id)}>Cancel</button>
             <hr />
         </>
     )
