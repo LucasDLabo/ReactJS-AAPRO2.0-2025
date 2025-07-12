@@ -20,7 +20,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
             return;
         }
 
-        if(appoint.some((i) => i.date == date) && appoint.some((i) => i.time == time) && appoint.some((i) => i.specialty == specialty)){
+        if(appoint.some((i) => i.date == date && i.time == time && i.specialty == specialty)){
             alert('Date already appointed!');
             return;
         }
