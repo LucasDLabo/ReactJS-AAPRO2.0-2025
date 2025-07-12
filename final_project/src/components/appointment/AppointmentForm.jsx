@@ -15,6 +15,11 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
             return;
         }
 
+        if (new Date(date).getTime() <= Date.now()){
+            alert('You cannot schedule an appointment for today or a past date!')
+            return;
+        }
+
         if(appoint.some((i) => i.date == date) && appoint.some((i) => i.time == time) && appoint.some((i) => i.specialty == specialty)){
             alert('Date already appointed!');
             return;
