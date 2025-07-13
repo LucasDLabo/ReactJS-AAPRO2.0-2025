@@ -28,6 +28,13 @@ function App() {
         };
         setAppoint([newAppoint, ...appoint]);
         localStorage.setItem('appointments', JSON.stringify([newAppoint, ...appoint]));
+        setIsCreateOpen(false);
+    }
+
+    const [isCreateOpen, setIsCreateOpen] = useState(false);
+
+    const toggleCreateWindow = () => {
+        setIsCreateOpen(!isCreateOpen);
     }
 
     return (
@@ -37,9 +44,21 @@ function App() {
             </header>
                 
             <main>
-                <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
 
-                <h2 className='title'>Appointment List</h2>
+                <div className='flex justify-between mr-40 mt-4'>
+                    <h2 className='title'>Appointment List</h2>
+                </div>
+                <div>
+                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-400' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-60`} >
+                        {isCreateOpen ? 'Close' : 'New +'}
+                    </button>
+                    {isCreateOpen && (
+                        <div className="absolute bg-white shadow-2xl p-5 rounded-2xl">
+                            <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                        </div>
+                    )}
+                </div>
+                
                 <AppointmentListContainer>
                 {
                     appoint.map( (data)=> (
@@ -56,6 +75,7 @@ function App() {
                     ) )
                 }
                 </AppointmentListContainer>
+                
             </main>
         </>
     )

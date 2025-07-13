@@ -29,52 +29,50 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
     }
     return(
         <>
-            <h2>Create Appointment</h2>
-                <form action="" onSubmit={submit}>
+            <h2 className='text-xl font-bold'>Schedule new appointment</h2>
+            <form action="" onSubmit={submit} className='flex flex-col'>
 
-                    <label htmlFor="patientName">Patient name: </label>
-                    <input type="text" name="patientName" id="patientName" className="bg-gray-200"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                    />
+                <label htmlFor="patientName">Patient name: </label>
+                <input type="text" name="patientName" id="patientName" className="border-b-2 border-blue-800 mb-3"
+                    placeholder='Enter patient name...'
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                />
 
-                    <label htmlFor="selectedDate">Select Date: </label>
-                    <input type="date" name="selectedDate" id="selectedDate" className="bg-gray-200"
-                        value={date}
-                        onChange={(e) => setDatetime(e.target.value)}
-                    />
+                <label htmlFor="selectedDate">Select Date: </label>
+                <input type="date" name="selectedDate" id="selectedDate" className="border-b-2 border-blue-800 mb-3"
+                    value={date}
+                    onChange={(e) => setDatetime(e.target.value)}
+                />
 
-                    <label htmlFor="selectedTime">Select Time: </label>
-                    <select name="selectedTime" id="selectedTime"
-                        value={time}
-                        onChange={(e) => setTime(e.target.value)}
-                    >
-                        <option hidden value="">Choose an hour</option>
-                        {
-                            timetables.map( (time) => 
-                                <option value={time.time} key={time.id}>{time.time}</option>
-                            )
-                        }
-                    </select>
+                <label htmlFor="selectedTime">Select Time: </label>
+                <select name="selectedTime" id="selectedTime" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                    value={time}
+                    onChange={(e) => setTime(e.target.value)}
+                >
+                    <option hidden value="">Choose an hour</option>
+                    {
+                        timetables.map( (time) => 
+                            <option value={time.time} key={time.id}>{time.time}</option>
+                        )
+                    }
+                </select>
 
-                    <label htmlFor="selectedSpecialty">Select Specialty: </label>
-                    <select 
-                        name="selectedSpecialty" 
-                        id="selectedSpecialty"
-                        value={specialty}
-                        onChange={(e) => setSpecialty(e.target.value)}
-                    >
-                        <option hidden value="">Choose an specialty</option>
-                        {
-                            specialties.map( (specialty) => 
-                                <option value={specialty.name} key={specialty.id}>{specialty.name}</option>
-                            )
-                        }
-                    </select>
-
-                    <button type="submit" className="bg-blue-300 cursor-pointer">Create</button>
-                </form>
-            <hr />
+                <label htmlFor="selectedSpecialty">Select Specialty: </label>
+                <select name="selectedSpecialty" id="selectedSpecialty" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                    value={specialty}
+                    onChange={(e) => setSpecialty(e.target.value)}
+                >
+                    <option hidden value="">Choose an specialty</option>
+                    {
+                        specialties.map( (specialty) => 
+                            <option value={specialty.name} key={specialty.id}>{specialty.name}</option>
+                        )
+                    }
+                </select>
+                    
+                <button type="submit" className="bg-green-500 cursor-pointer hover:bg-green-600 font-bold text-white">Appoint!</button>
+            </form>
         </>
     )
 }
