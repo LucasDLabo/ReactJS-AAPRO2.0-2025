@@ -2,7 +2,8 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {
-    scrollbar-gutter: stable;
+    overflow-y: scroll;
+    overflow-x: hidden;
 }
 main{
     @apply px-10

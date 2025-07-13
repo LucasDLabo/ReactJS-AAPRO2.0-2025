@@ -3,6 +3,7 @@ import './Style.css'
 import AppointmentList from './components/appointment/AppointmentList.jsx'
 import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
 import AppointmentForm from './components/appointment/AppointmentForm.jsx'
+import Navbar from './components/header/Navbar.jsx'
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
@@ -22,7 +23,7 @@ function App() {
 
     function createAppoint( {name, date, time, specialty} ){
         const newAppoint = {
-        id: appoint.length > 0 ? appoint.at(0).id + 1 : 0, 
+        id: appoint.length > 0 ? appoint.at(0).id + 1 : 1, 
         name, date, time, specialty
         };
         setAppoint([newAppoint, ...appoint]);
@@ -31,6 +32,10 @@ function App() {
 
     return (
         <>  
+            <header>
+                <Navbar></Navbar>
+            </header>
+                
             <main>
                 <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
 
