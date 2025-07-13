@@ -29,7 +29,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
     }
     return(
         <>
-            <h2 className='text-xl font-bold'>Schedule new appointment</h2>
+            <h2 className='text-xl font-bold'>Schedule a New Appointment</h2>
             <form action="" onSubmit={submit} className='flex flex-col'>
 
                 <label htmlFor="patientName">Patient name: </label>
@@ -45,12 +45,12 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                     onChange={(e) => setDatetime(e.target.value)}
                 />
 
-                <label htmlFor="selectedTime">Select Time: </label>
+                <label htmlFor="selectedTime">Select a Time: </label>
                 <select name="selectedTime" id="selectedTime" className='border-b-2 border-blue-800 cursor-pointer mb-3'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 >
-                    <option hidden value="">Choose an hour</option>
+                    <option hidden value="">Choose a Time</option>
                     {
                         timetables.map( (time) => 
                             <option value={time.time} key={time.id}>{time.time}</option>
@@ -63,7 +63,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                     value={specialty}
                     onChange={(e) => setSpecialty(e.target.value)}
                 >
-                    <option hidden value="">Choose an specialty</option>
+                    <option hidden value="">Choose a Specialty</option>
                     {
                         specialties.map( (specialty) => 
                             <option value={specialty.name} key={specialty.id}>{specialty.name}</option>
@@ -71,7 +71,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                     }
                 </select>
                     
-                <button type="submit" className="bg-green-500 cursor-pointer hover:bg-green-600 font-bold text-white">Appoint!</button>
+                <button type="submit" className="bg-green-500 cursor-pointer hover:bg-green-600 font-bold text-white" title='Confirm Appointment!'>Confirm Appointment!</button>
             </form>
         </>
     )

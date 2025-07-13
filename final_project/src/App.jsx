@@ -49,7 +49,7 @@ function App() {
                     <h2 className='title'>Appointment List</h2>
                 </div>
                 <div>
-                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-400' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-60`} >
+                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-400' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-60`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                         {isCreateOpen ? 'Close' : 'New +'}
                     </button>
                     {isCreateOpen && (
@@ -75,7 +75,7 @@ function App() {
                     ) )
                 }
                 </AppointmentListContainer>
-                
+
             </main>
         </>
     )

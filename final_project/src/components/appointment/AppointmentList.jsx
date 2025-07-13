@@ -13,7 +13,7 @@ function AppointmentList( {id, name, date, time, specialty, onDelete} ){
         <>
             <div className="w-72 rounded-md bg-indigo-50 p-4 shadow-2xl shadow-gray-400">
                 <ul className="flex min-h-52 flex-col">
-                    <li className="text-xl font-bold text-gray-500 italic">Order number #{id}</li>
+                    <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>
                     <hr className="text-gray-500"/>
                     <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
                         <li><b className="text-blue-900">Patient name:</b> {name}</li>
