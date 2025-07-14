@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './Style.css'
 import AppointmentList from './components/appointment/AppointmentList.jsx'
 import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
@@ -13,14 +13,12 @@ function App() {
         const localstorage = localStorage.getItem('appointments');
         return localstorage ? JSON.parse(localstorage) : localStorage.setItem('appointments', JSON.stringify(exampleData));
     });
-
     function deleteAppoint(id){
         console.log(`id pasado ${id} - Turno borrado`)
         const updatedAppoint = appoint.filter((i) => i.id !== id);
         setAppoint(updatedAppoint);
         localStorage.setItem('appointments', JSON.stringify(updatedAppoint));
     }
-
     function createAppoint( {name, date, time, specialty} ){
         const newAppoint = {
         id: appoint.length > 0 ? appoint.at(0).id + 1 : 1, 
@@ -32,10 +30,14 @@ function App() {
     }
 
     const [isCreateOpen, setIsCreateOpen] = useState(false);
-
     const toggleCreateWindow = () => {
         setIsCreateOpen(!isCreateOpen);
     }
+
+    const [showBackToTopButton, setBackToTopButton] = useState(false);
+    useEffect(() => {
+        window.addEventListener("scroll", () => {window.pageYOffset > 500 ? setBackToTopButton(true) : setBackToTopButton(false);});
+    }, []);
 
     return (
         <>  
@@ -44,9 +46,8 @@ function App() {
             </header>
                 
             <main>
-
                 <div className='flex justify-between mr-40 mt-4'>
-                    <h2 className='title'>Appointment List</h2>
+                    <h2 className='title' id='top'>Appointment List</h2>
                 </div>
                 <div>
                     <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-400' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-60`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
@@ -77,6 +78,7 @@ function App() {
                 </AppointmentListContainer>
 
             </main>
+            {showBackToTopButton && ( <a href="top" className='fixed bottom-6 right-6 text-xl font-bold bg-blue-900 text-white w-10 h-10 text-center leading-[40px] rounded-full'>^</a>)}
         </>
     )
 }
