@@ -1,9 +1,10 @@
 import { useState, useEffect } from 'react'
 import './Style.css'
+import Navbar from './components/header/Navbar.jsx'
 import AppointmentList from './components/appointment/AppointmentList.jsx'
 import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
 import AppointmentForm from './components/appointment/AppointmentForm.jsx'
-import Navbar from './components/header/Navbar.jsx'
+import FootSection from './components/footer/FootSection.jsx'
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
@@ -76,9 +77,12 @@ function App() {
                     ) )
                 }
                 </AppointmentListContainer>
-
+                {showBackToTopButton && ( <a href="top" title='Back to Top' className='fixed bottom-6 right-6 text-xl font-bold bg-blue-900 text-white w-10 h-10 text-center leading-[40px] rounded-full'>^</a>)}
             </main>
-            {showBackToTopButton && ( <a href="top" className='fixed bottom-6 right-6 text-xl font-bold bg-blue-900 text-white w-10 h-10 text-center leading-[40px] rounded-full'>^</a>)}
+            
+            <footer>
+                <FootSection />
+            </footer>
         </>
     )
 }
