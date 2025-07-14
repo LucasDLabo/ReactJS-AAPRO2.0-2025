@@ -46,7 +46,7 @@ function App() {
                 <Navbar></Navbar>
             </header>
                 
-            <main>
+            <main className='min-h-screen'>
                 <div className='flex justify-between mr-40 mt-4'>
                     <h2 className='title' id='top'>Appointment List</h2>
                 </div>
@@ -60,7 +60,13 @@ function App() {
                         </div>
                     )}
                 </div>
-                
+
+                {appoint.length === 0 && (
+                    <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
+                        No appointments scheduled yet...
+                    </p>
+                )}
+
                 <AppointmentListContainer>
                 {
                     appoint.map( (data)=> (
