@@ -11,7 +11,7 @@ function Navbar(){
                 </ul>
                 
             </nav>
-            <hr className=" border-1 text-blue-800"/>
+            <hr id='top' className=" border-1 text-blue-800"/>
         </>
     )
 }

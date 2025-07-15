@@ -4,6 +4,7 @@
 html {
     overflow-y: scroll;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 main{
     @apply px-10
@@ -14,5 +15,8 @@ main{
     }
     .btn-delete{
         @apply cursor-pointer rounded bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-400;
+    }
+    .link-a{
+        @apply border-b-2 text-white transition-colors hover:text-blue-400;
     }
 }

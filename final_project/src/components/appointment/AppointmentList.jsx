@@ -11,7 +11,7 @@ function AppointmentList( {id, name, date, time, specialty, onDelete} ){
 
     return (
         <>
-            <div className="w-72 rounded-md bg-indigo-50 p-4 shadow-2xl shadow-gray-400">
+            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400">
                 <ul className="flex min-h-52 flex-col">
                     <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>
                     <hr className="text-gray-500"/>

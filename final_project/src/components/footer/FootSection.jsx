@@ -8,12 +8,12 @@ function FootSection(){
                     <section className="flex w-full flex-col items-center justify-center  border-r-1 border-gray-500">
                         <h3 className="text-3xl font-bold italic">What's New?</h3>
                         <p className="text-center">
-                            Learn more about the lastest news on our <a href="" className="border-b-2" title="Go to the Blogsite">Blogsite</a>
+                            Learn more about the lastest news on our <a href="" className="link-a" title="Go to the Blog site">Blogsite</a>
                             <br />
                             You can found us on our social media too! 
                             <br />
                             <span className="flex justify-evenly">
-                                <a href="https://www.instagram.com/" className="border-b-2" title="Go to Instagram" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com" className="border-b-2" title="Go to X / Twitter" target="_blank" rel="noopener noreferrer">X / Twitter</a><a href="https://facebook.com" className="border-b-2" title="Go to Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>                       
+                                <a href="https://www.instagram.com/" className="link-a" title="Go to Instagram" target="_blank" rel="noopener noreferrer">Instagram</a><a href="https://x.com" className="link-a" title="Go to X / Twitter" target="_blank" rel="noopener noreferrer">X / Twitter</a><a href="https://facebook.com" className="link-a" title="Go to Facebook" target="_blank" rel="noopener noreferrer">Facebook</a>                       
                             </span>
                         </p>
 
@@ -44,7 +44,7 @@ function FootSection(){
                         <div className="flex w-3/4 justify-center gap-4">
                             <input type="email" name="" id="" placeholder="Enter your email here" className="mt-3 w-1/2 rounded bg-gray-600 px-2 py-1"/>
 
-                            <button type="submit" className="mt-3 w-34 cursor-pointer rounded bg-blue-700 px-3 py-1 hover:bg-blue-500" title="Confirm Subscription">Send me News!</button>
+                            <button type="submit" className="mt-3 w-34 cursor-pointer rounded bg-blue-700 px-3 py-1 transition-colors hover:bg-blue-500" title="Confirm Subscription">Send me News!</button>
                         </div>
                     </form>
                 </div>

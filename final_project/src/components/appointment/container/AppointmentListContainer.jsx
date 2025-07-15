@@ -1,8 +1,8 @@
 function AppointmentListContainer( {children} ){
     return(
         <>
-            <div className="flex justify-center">
-                <section className="flex flex-wrap w-[72.7vw] items-center justify-start gap-16">
+            <div className="flex justify-center px-10">
+                <section className="flex flex-wrap items-end justify-center gap-16">
                     {children}
                 </section>
             </div>

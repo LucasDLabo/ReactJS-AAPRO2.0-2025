@@ -37,7 +37,7 @@ function App() {
 
     const [showBackToTopButton, setBackToTopButton] = useState(false);
     useEffect(() => {
-        window.addEventListener("scroll", () => {window.pageYOffset > 500 ? setBackToTopButton(true) : setBackToTopButton(false);});
+        window.addEventListener("scroll", () => {window.pageYOffset > 100 ? setBackToTopButton(true) : setBackToTopButton(false);});
     }, []);
 
     return (
@@ -48,10 +48,10 @@ function App() {
                 
             <main className='min-h-screen'>
                 <div className='flex justify-between mr-40 mt-4'>
-                    <h2 className='title' id='top'>Appointment List</h2>
+                    <h2 className='title'>Appointments List</h2>
                 </div>
                 <div>
-                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-400' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-60`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-70`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                         {isCreateOpen ? 'Close' : 'New +'}
                     </button>
                     {isCreateOpen && (
@@ -83,7 +83,7 @@ function App() {
                     ) )
                 }
                 </AppointmentListContainer>
-                {showBackToTopButton && ( <a href="#top" title='Back to Top' className='fixed bottom-6 right-6 text-xl font-bold bg-blue-900 text-white w-10 h-10 text-center leading-[40px] rounded-full'>^</a>)}
+                {showBackToTopButton && ( <a href="#top" title='Back to Top' className='fixed right-6 bottom-6 h-10 w-10 rounded-full bg-blue-900 text-center text-xl leading-[40px] font-bold text-white hover:opacity-60'>^</a>)}
             </main>
             
             <footer>
