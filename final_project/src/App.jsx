@@ -80,7 +80,7 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } relative text-white px-2 rounded py-1 cursor-pointer hover:opacity-70 z-20`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 dark:bg-red-800' : 'bg-green-500 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer hover:opacity-70 z-20`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
@@ -99,7 +99,7 @@ function App() {
                     <input
                         type="text"
                         placeholder="Search by name, date, time or specialty..."
-                        className="w-full px-4 py-1 border rounded shadow border-gray-200"
+                        className="w-full px-4 py-1 border rounded shadow border-gray-200 dark:text-gray-200 dark:bg-blue-950"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
