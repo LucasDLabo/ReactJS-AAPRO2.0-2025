@@ -29,6 +29,14 @@ function App() {
         localStorage.setItem('appointments', JSON.stringify([newAppoint, ...appoint]));
         setIsCreateOpen(false);
     }
+    function editAppoint( {id, name, date, time, specialty} ){
+        console.log(`Llegamos pa ${id + name + date + time + specialty}`);
+        const editedAppoint = appoint.map((i) => 
+            i.id == id ? { ...i, name, date, time, specialty } : i
+        );
+        setAppoint(editedAppoint);
+        localStorage.setItem('appointments', JSON.stringify(editedAppoint));
+    }
 
     const [isCreateOpen, setIsCreateOpen] = useState(false);
     const toggleCreateWindow = () => {
@@ -78,7 +86,13 @@ function App() {
                         time={data.time}
                         specialty={data.specialty}
 
+                        timetables={timetables}
+                        specialties={specialties}
+
+                        onUpdate={editAppoint}
                         onDelete={deleteAppoint}
+
+                        appoint={appoint}
                     />
                     ) )
                 }

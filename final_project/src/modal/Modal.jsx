@@ -2,8 +2,6 @@ import { useEffect } from 'react';
 
 function Modal ({ isOpen, onClose, children }) {
 
-    if (isOpen === false) return null;
-
     useEffect(() => { function handleEscape (e) {
         if (e.key === 'Escape') {
             onClose();
@@ -19,6 +17,7 @@ function Modal ({ isOpen, onClose, children }) {
         };
     }, [isOpen, onClose]);
 
+    if (isOpen === false) return null;
 
     return (
         <div className="fixed inset-0 flex items-center justify-center z-50">
