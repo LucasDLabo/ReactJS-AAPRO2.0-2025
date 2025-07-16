@@ -85,7 +85,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     >
                                         {
                                             timetables.map( (i) => 
-                                                <option value={i.time} key={i.id}>{i.time}{ i.time == time ? ' (Current)' : ''}</option>
+                                                <option value={i.time} key={i.id} className='dark:bg-gray-800'>{i.time}{ i.time == time ? ' (Current)' : ''}</option>
                                             )
                                         }
                                     </select>
@@ -97,12 +97,12 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     >
                                     {
                                         specialties.map( (i) => 
-                                            <option value={i.name} key={i.id}>{i.name}{ i.name == specialty ? ' (Current)' : null}</option>
+                                            <option value={i.name} key={i.id} className='dark:bg-gray-800'>{i.name}{ i.name == specialty ? ' (Current)' : null}</option>
                                         )
                                     }
                                     </select>
                                     <div className='flex justify-between gap-5 items-center h-full'>
-                                        <a className='cursor-pointer bg-gray-300 px-3 py-0.5 rounded text-center text-gray-600 hover:text-black hover:bg-gray-400 transition-colors' onClick={cleanForm}>Reset Changes</a>
+                                        <a className='cursor-pointer bg-gray-300 px-3 py-0.5 rounded text-center text-gray-600 hover:text-black hover:bg-gray-400 transition-colors dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>Reset Changes</a>
                                         <button className='btn-delete px-5 bg-blue-600 hover:bg-blue-500 transition-colors ' title='Confirm Changes'>Confirm Changes</button>
                                     </div>
                                 </form>
