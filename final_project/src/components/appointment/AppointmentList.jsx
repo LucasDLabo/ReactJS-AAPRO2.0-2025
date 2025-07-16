@@ -51,11 +51,11 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
 
     return (
         <>
-            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:shadow-gray-700 dark:bg-gray-700">
+            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-700">
                 <ul className="flex min-h-52 flex-col">
-                    <div className='flex justify-between items-center'>
+                    <div className='flex items-center justify-between'>
                         <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>
-                        <img onClick={() => setShowEditModal(true)} className='cursor-pointer w-5 h-5 opacity-60' src="https://img.icons8.com/fluency-systems-filled/48/create-new.png" alt="Edit Appointment icon" title='Modify Appointment'/>
+                        <img onClick={() => setShowEditModal(true)} className='h-5 w-5 cursor-pointer opacity-60' src="https://img.icons8.com/fluency-systems-filled/48/create-new.png" alt="Edit Appointment icon" title='Modify Appointment'/>
                         <Modal isOpen={showEditModal} onClose={() => setShowEditModal(false)}>
                             <div className='flex flex-col items-start gap-3'>
                                 <h3 className='text-lg font-bold'> 
@@ -63,23 +63,23 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     <br /> 
                                     Please, enter the desired changes for this appointment...
                                 </h3>
-                                <form action="" onSubmit={submit} className='flex flex-col w-full px-10'>
+                                <form action="" onSubmit={submit} className='flex w-full flex-col px-10'>
 
                                     <label htmlFor="patientName">* Patient name: </label>
-                                    <input type="text" name="patientName" id="patientName" className="border-b-2 border-blue-800 mb-3"
+                                    <input type="text" name="patientName" id="patientName" className="mb-3 border-b-2 border-blue-800"
                                         placeholder='Enter patient name...'
                                         value={getName}
                                         onChange={(e) => setName(e.target.value)}
                                     />
 
                                     <label htmlFor="selectedDate">* Select Date: </label>
-                                    <input type="date" name="selectedDate" id="selectedDate" className="border-b-2 border-blue-800 mb-3"
+                                    <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800"
                                         value={getDate}
                                         onChange={(e) => setDate(e.target.value)}
                                     />
 
                                     <label htmlFor="selectedTime">* Select a Time: </label>
-                                    <select name="selectedTime" id="selectedTime" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                                    <select name="selectedTime" id="selectedTime" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                                         value={getTime}
                                         onChange={(e) => setTime(e.target.value)}
                                     >
@@ -91,7 +91,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     </select>
 
                                     <label htmlFor="selectedSpecialty">* Select Specialty: </label>
-                                    <select name="selectedSpecialty" id="selectedSpecialty" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                                    <select name="selectedSpecialty" id="selectedSpecialty" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                                         value={getSpecialty}
                                         onChange={(e) => setSpecialty(e.target.value)}
                                     >
@@ -101,9 +101,9 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                         )
                                     }
                                     </select>
-                                    <div className='flex justify-between gap-5 items-center h-full'>
-                                        <a className='cursor-pointer bg-gray-300 px-3 py-0.5 rounded text-center text-gray-600 hover:text-black hover:bg-gray-400 transition-colors dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>Reset Changes</a>
-                                        <button className='btn-delete px-5 bg-blue-600 hover:bg-blue-500 transition-colors ' title='Confirm Changes'>Confirm Changes</button>
+                                    <div className='flex h-full items-center justify-between gap-5'>
+                                        <a className='cursor-pointer rounded bg-gray-300 px-3 py-0.5 text-center text-gray-600 transition-colors hover:bg-gray-400 hover:text-black dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>Reset Changes</a>
+                                        <button className='btn-delete bg-blue-600 px-5 transition-colors hover:bg-blue-500' title='Confirm Changes'>Confirm Changes</button>
                                     </div>
                                 </form>
                             </div>

@@ -33,20 +33,20 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
             <form action="" onSubmit={submit} className='flex flex-col '>
 
                 <label htmlFor="patientName" className='dark:text-gray-300'>Patient name: </label>
-                <input type="text" name="patientName" id="patientName" className="border-b-2 border-blue-800 mb-3"
+                <input type="text" name="patientName" id="patientName" className="mb-3 border-b-2 border-blue-800"
                     placeholder='Enter patient name...'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
 
                 <label htmlFor="selectedDate" className='dark:text-gray-300'>Select Date: </label>
-                <input type="date" name="selectedDate" id="selectedDate" className="border-b-2 border-blue-800 mb-3 dark:bg-gray-800 scheme-light-dark"
+                <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800 scheme-light-dark dark:bg-gray-800"
                     value={date}
                     onChange={(e) => setDatetime(e.target.value)}
                 />
 
                 <label htmlFor="selectedTime" className='dark:text-gray-300'>Select a Time: </label>
-                <select name="selectedTime" id="selectedTime" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                <select name="selectedTime" id="selectedTime" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
                 >
@@ -59,7 +59,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                 </select>
 
                 <label htmlFor="selectedSpecialty" className='dark:text-gray-300'>Select Specialty: </label>
-                <select name="selectedSpecialty" id="selectedSpecialty" className='border-b-2 border-blue-800 cursor-pointer mb-3'
+                <select name="selectedSpecialty" id="selectedSpecialty" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                     value={specialty}
                     onChange={(e) => setSpecialty(e.target.value)}
                 >
@@ -71,7 +71,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                     }
                 </select>
                     
-                <button type="submit" className="bg-green-500 cursor-pointer hover:bg-green-600 font-bold text-white dark:bg-green-800 dark:hover:bg-green-700 transition-colors" title='Confirm Appointment!'>Confirm Appointment!</button>
+                <button type="submit" className="cursor-pointer bg-green-500 font-bold text-white transition-colors hover:bg-green-600 dark:bg-green-800 dark:hover:bg-green-700" title='Confirm Appointment!'>Confirm Appointment!</button>
             </form>
         </>
     )

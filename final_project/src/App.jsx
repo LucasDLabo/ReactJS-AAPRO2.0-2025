@@ -73,7 +73,7 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex justify-between px-30 items-end mb-5'>
+                <section className='mb-5 flex items-end justify-between px-30'>
                     
                     <div className='w-full'>
                         <div className='mt-4'>
@@ -87,7 +87,7 @@ function App() {
 
                             {isCreateOpen && (
                                 <div>
-                                    <div className="absolute bg-white shadow-black shadow-2xl p-5 border-2 border-gray-300 rounded-2xl z-50 dark:bg-gray-800 dark:text-gray-400">
+                                    <div className="absolute z-50 rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black dark:bg-gray-800 dark:text-gray-400">
                                         <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
                                     </div>
                                     <div className='fixed inset-0 z-10' onClick={toggleCreateWindow}></div>
@@ -99,7 +99,7 @@ function App() {
                     <input
                         type="text"
                         placeholder="Search by name, date, time or specialty..."
-                        className="w-full px-4 py-1 border rounded shadow border-gray-200 dark:text-gray-200 dark:bg-blue-950"
+                        className="w-full rounded border border-gray-200 px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
