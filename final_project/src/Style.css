@@ -7,7 +7,7 @@ html {
     scroll-behavior: smooth;
 }
 main{
-    @apply px-10
+    @apply px-10 dark:bg-gray-900;
 }
 @layer components{
     .title{
@@ -20,6 +20,6 @@ main{
         @apply border-b-2 text-white transition-colors hover:text-blue-400;
     }
     .btn-settings{
-        @apply text-gray-600 hover:bg-gray-200 w-full text-start rounded my-1 p-1.5 hover:text-black cursor-pointer;
+        @apply text-gray-600 hover:bg-gray-200 w-full text-start rounded my-1 p-1.5 hover:text-black cursor-pointer dark:text-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-300;
     }
 }
