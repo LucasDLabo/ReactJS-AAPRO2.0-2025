@@ -14,7 +14,7 @@ main{
         @apply mb-5 text-4xl font-extrabold text-blue-800
     }
     .btn-delete{
-        @apply cursor-pointer rounded bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-400;
+        @apply cursor-pointer rounded bg-red-500 px-2 py-1 font-bold text-white hover:bg-red-400 transition-colors;
     }
     .link-a{
         @apply border-b-2 text-white transition-colors hover:text-blue-400;
