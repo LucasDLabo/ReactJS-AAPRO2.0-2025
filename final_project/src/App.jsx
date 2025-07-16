@@ -27,7 +27,7 @@ function App() {
         const newAppoint = {
         id: appoint.length > 0 ? appoint.at(0).id + 1 : 1, 
         name, date, time, specialty, 
-        formated_date: formattedDate
+        formatted_date: formattedDate
         };
         setAppoint([newAppoint, ...appoint]);
         localStorage.setItem('appointments', JSON.stringify([newAppoint, ...appoint]));
@@ -39,7 +39,7 @@ function App() {
         const formattedDate = dateFormatter(date);
 
         const editedAppoint = appoint.map((i) => 
-            i.id == id ? { ...i, name, date, time, specialty, formated_date: formattedDate } : i
+            i.id == id ? { ...i, name, date, time, specialty, formatted_date: formattedDate } : i
         );
         setAppoint(editedAppoint);
         localStorage.setItem('appointments', JSON.stringify(editedAppoint));
@@ -61,7 +61,7 @@ function App() {
         const term = search.toLowerCase();
         return (
             i.name.toLowerCase().includes(term) ||
-            i.formated_date.toLowerCase().includes(term) ||
+            i.formatted_date.toLowerCase().includes(term) ||
             i.time.toLowerCase().includes(term) ||
             i.specialty.toLowerCase().includes(term)
         );
@@ -122,7 +122,7 @@ function App() {
                         id={data.id}
                         name={data.name}
                         date={data.date}
-                        formated_date={data.formated_date}
+                        formatted_date={data.formatted_date}
                         time={data.time}
                         specialty={data.specialty}
 

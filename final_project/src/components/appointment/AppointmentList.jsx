@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import Modal from '../../modal/Modal'
 
-function AppointmentList( {id, name, date, formated_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
+function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
 
     const createdDate = new Date(`${date}T00:00:00-04:00`);
 
-    const formatedDate = createdDate.toLocaleDateString('en-US', {
+    const formattedDate = createdDate.toLocaleDateString('en-US', {
         weekday: 'long',
         day: '2-digit',
         month: 'long',
@@ -112,7 +112,7 @@ function AppointmentList( {id, name, date, formated_date, time, specialty, onDel
                     <hr className="text-gray-500"/>
                     <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
                         <li><b className="text-blue-900">Patient name:</b> {name}</li>
-                        <li><b className="text-blue-900">Date:</b> {formated_date} at {time}hs</li>
+                        <li><b className="text-blue-900">Date:</b> {formatted_date} at {time}hs</li>
                         <li><b className="text-blue-900">Medical field:</b> {specialty}</li>
                     </div>
                     
