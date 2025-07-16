@@ -8,6 +8,7 @@ import FootSection from './components/footer/FootSection.jsx'
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
+import dateFormatter from './utils/dateFormatter.js'
 
 function App() {
     const [appoint, setAppoint] = useState( () => {
@@ -15,24 +16,30 @@ function App() {
         return localstorage ? JSON.parse(localstorage) : localStorage.setItem('appointments', JSON.stringify(exampleData));
     });
     function deleteAppoint(id){
-        console.log(`id pasado ${id} - Turno borrado`)
         const updatedAppoint = appoint.filter((i) => i.id !== id);
         setAppoint(updatedAppoint);
         localStorage.setItem('appointments', JSON.stringify(updatedAppoint));
     }
     function createAppoint( {name, date, time, specialty} ){
+
+        const formattedDate = dateFormatter(date);
+
         const newAppoint = {
         id: appoint.length > 0 ? appoint.at(0).id + 1 : 1, 
-        name, date, time, specialty
+        name, date, time, specialty, 
+        formated_date: formattedDate
         };
         setAppoint([newAppoint, ...appoint]);
         localStorage.setItem('appointments', JSON.stringify([newAppoint, ...appoint]));
+
         setIsCreateOpen(false);
     }
     function editAppoint( {id, name, date, time, specialty} ){
-        console.log(`Llegamos pa ${id + name + date + time + specialty}`);
+
+        const formattedDate = dateFormatter(date);
+
         const editedAppoint = appoint.map((i) => 
-            i.id == id ? { ...i, name, date, time, specialty } : i
+            i.id == id ? { ...i, name, date, time, specialty, formated_date: formattedDate } : i
         );
         setAppoint(editedAppoint);
         localStorage.setItem('appointments', JSON.stringify(editedAppoint));
@@ -48,6 +55,17 @@ function App() {
         window.addEventListener("scroll", () => {window.pageYOffset > 100 ? setBackToTopButton(true) : setBackToTopButton(false);});
     }, []);
 
+    const [search, setSearch] = useState('');
+    
+    const filteredAppoints = appoint.filter((i) => {
+        const term = search.toLowerCase();
+        return (
+            i.name.toLowerCase().includes(term) ||
+            i.formated_date.toLowerCase().includes(term) ||
+            i.time.toLowerCase().includes(term) ||
+            i.specialty.toLowerCase().includes(term)
+        );
+    });
     return (
         <>  
             <header>
@@ -55,34 +73,56 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <div className='flex justify-between mr-40 mt-4'>
-                    <h2 className='title'>Appointments List</h2>
-                </div>
-                <div>
-                    <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-70`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
-                        {isCreateOpen ? 'Close' : 'New +'}
-                    </button>
-                    {isCreateOpen && (
-                        <div className="absolute bg-white shadow-2xl p-5 rounded-2xl">
-                            <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                <section className='flex justify-between px-30 items-end mb-5'>
+                    
+                    <div className='w-full'>
+                        <div className='mt-4'>
+                            <h2 className='title'>Appointments List</h2>
                         </div>
-                    )}
+                        <div>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-70`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                                {isCreateOpen ? 'Close' : 'New +'}
+                            </button>
+                            {isCreateOpen && (
+                                <div className="absolute bg-white shadow-2xl p-5 rounded-2xl">
+                                    <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                <div className="w-full max-w-sm">
+                    <input
+                        type="text"
+                        placeholder="Search by name, date, time or specialty..."
+                        className="w-full px-4 py-1 border rounded shadow border-gray-200"
+                        value={search}
+                        onChange={(e) => setSearch(e.target.value)}
+                    />
                 </div>
-
+                
+                </section>
                 {appoint.length === 0 && (
                     <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
                         No appointments scheduled yet...
                     </p>
                 )}
 
+                
+
                 <AppointmentListContainer>
-                {
-                    appoint.map( (data)=> (
+                {   
+                    filteredAppoints.length === 0 ? (
+                        <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
+                            No results were found :(
+                        </p>
+                    ) :
+                    filteredAppoints.map( (data)=> (
                     <AppointmentList 
                         key={data.id}
                         id={data.id}
                         name={data.name}
                         date={data.date}
+                        formated_date={data.formated_date}
                         time={data.time}
                         specialty={data.specialty}
 

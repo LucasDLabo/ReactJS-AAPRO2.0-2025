@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Modal from '../../modal/Modal'
 
-function AppointmentList( {id, name, date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
+function AppointmentList( {id, name, date, formated_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
 
     const createdDate = new Date(`${date}T00:00:00-04:00`);
 
@@ -23,7 +23,6 @@ function AppointmentList( {id, name, date, time, specialty, onDelete, timetables
     const submit = (e) => {
         e.preventDefault();
 
-        console.log(`Submiteados ${id + getName + getDate + getTime + getSpecialty}`);
         if (!getName.trim() || !getDate.trim() || !getTime.trim() || !getSpecialty.trim()) {
             alert('Make sure all fields are completed!');
             return;
@@ -113,7 +112,7 @@ function AppointmentList( {id, name, date, time, specialty, onDelete, timetables
                     <hr className="text-gray-500"/>
                     <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
                         <li><b className="text-blue-900">Patient name:</b> {name}</li>
-                        <li><b className="text-blue-900">Date:</b> {formatedDate} at {time}hs</li>
+                        <li><b className="text-blue-900">Date:</b> {formated_date} at {time}hs</li>
                         <li><b className="text-blue-900">Medical field:</b> {specialty}</li>
                     </div>
                     

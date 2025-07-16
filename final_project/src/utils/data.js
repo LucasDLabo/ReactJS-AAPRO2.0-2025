@@ -5,6 +5,7 @@ export default[
         date: '2025-07-10',
         time: '10:00',
         specialty: 'Medical Consultation',
+        formatted_date: 'Thursday, July 10, 2025'
     },
     {
         id: 6,
@@ -12,6 +13,7 @@ export default[
         date: '2025-07-06',
         time: '8:00',
         specialty: 'Cardiology',
+        formatted_date: 'Sunday, July 06, 2025'
     },
     {
         id: 5,
@@ -19,6 +21,7 @@ export default[
         date: '2025-07-02',
         time: '9:40',
         specialty: 'Dentistry',
+        formatted_date: 'Wednesday, July 02, 2025'
     },
     {
         id: 4,
@@ -26,6 +29,7 @@ export default[
         date: '2025-07-04',
         time: '9:00',
         specialty: 'Medical Consultation',
+        formated_date: 'Friday, July 04, 2025'
     },
     {
         id: 3,
@@ -33,6 +37,7 @@ export default[
         date: '2025-07-04',
         time: '9:00',
         specialty: 'Dentistry',
+        formatted_date: 'Friday, July 04, 2025'
     },
     {
         id: 2,
@@ -40,6 +45,7 @@ export default[
         date: '2025-07-07',
         time: '9:00',
         specialty: 'Ophthalmology',
+        formatted_date: 'Monday, July 07, 2025'
     },
     {
         id: 1,
@@ -47,5 +53,6 @@ export default[
         date: '2025-07-09',
         time: '10:00',
         specialty: 'Ophthalmology',
+        formatted_date: 'Wednesday, July 09, 2025'
     }
 ]
