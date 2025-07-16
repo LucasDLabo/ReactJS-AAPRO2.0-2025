@@ -2,7 +2,7 @@ function FootSection(){
     return(
         <>
         
-            <div className="mt-10 flex flex-col bg-blue-950 py-10 text-white">
+            <div className="mt-10 flex flex-col bg-blue-950 dark:bg-neutral-900 py-10 text-white">
 
                 <div className="flex h-full justify-between py-5">
                     <section className="flex w-full flex-col items-center justify-center  border-r-1 border-gray-500">
@@ -44,7 +44,7 @@ function FootSection(){
                         <div className="flex w-3/4 justify-center gap-4">
                             <input type="email" name="" id="" placeholder="Enter your email here" className="mt-3 w-1/2 rounded bg-gray-600 px-2 py-1"/>
 
-                            <button type="submit" className="mt-3 w-34 cursor-pointer rounded bg-blue-700 px-3 py-1 transition-colors hover:bg-blue-500" title="Confirm Subscription">Send me News!</button>
+                            <button type="submit" className="mt-3 w-34 cursor-pointer rounded bg-blue-700 dark:bg-blue-950 dark:hover:bg-blue-800 px-3 py-1 transition-colors hover:bg-blue-500" title="Confirm Subscription">Send me News!</button>
                         </div>
                     </form>
                 </div>
