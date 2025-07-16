@@ -51,7 +51,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
 
     return (
         <>
-            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400">
+            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:shadow-gray-700 dark:bg-gray-700">
                 <ul className="flex min-h-52 flex-col">
                     <div className='flex justify-between items-center'>
                         <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>
@@ -111,9 +111,9 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                     </div>
                     <hr className="text-gray-500"/>
                     <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
-                        <li><b className="text-blue-900">Patient name:</b> {name}</li>
-                        <li><b className="text-blue-900">Date:</b> {formatted_date} at {time}hs</li>
-                        <li><b className="text-blue-900">Medical field:</b> {specialty}</li>
+                        <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Patient name:</b> {name}</li>
+                        <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Date:</b> {formatted_date} at {time}hs</li>
+                        <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Medical field:</b> {specialty}</li>
                     </div>
                     
                     <li><button title="Cancel Appointment" className="btn-delete text-sm" onClick={() => setShowDeleteModal(true)}>Cancel</button></li>
