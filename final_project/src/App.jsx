@@ -87,7 +87,7 @@ function App() {
 
                             {isCreateOpen && (
                                 <div>
-                                    <div className="absolute bg-white shadow-black shadow-2xl p-5 border-2 border-gray-300 rounded-2xl z-50">
+                                    <div className="absolute bg-white shadow-black shadow-2xl p-5 border-2 border-gray-300 rounded-2xl z-50 dark:bg-gray-800 dark:text-gray-400">
                                         <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
                                     </div>
                                     <div className='fixed inset-0 z-10' onClick={toggleCreateWindow}></div>
