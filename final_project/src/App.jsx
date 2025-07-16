@@ -59,6 +59,15 @@ function App() {
     
     const filteredAppoints = appoint.filter((i) => {
         const term = search.toLowerCase();
+
+        if (term.startsWith('#')) {
+            const idToFind = parseInt(term.slice(1), 10);
+            if (isNaN(idToFind)) {
+                return true;
+            }
+            return i.id === idToFind;
+        }
+
         return (
             i.name.toLowerCase().includes(term) ||
             i.formatted_date.toLowerCase().includes(term) ||
@@ -103,6 +112,9 @@ function App() {
                         value={search}
                         onChange={(e) => setSearch(e.target.value)}
                     />
+                    <p className="text-sm text-gray-400 mt-1">
+                        Tip: Use # to search by ID
+                    </p>
                 </div>
                 
                 </section>
