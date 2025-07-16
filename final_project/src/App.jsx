@@ -84,7 +84,7 @@ function App() {
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                             {isCreateOpen && (
-                                <div className="absolute bg-white shadow-2xl p-5 rounded-2xl">
+                                <div className="absolute bg-white shadow-2xl p-5 rounded-2xl z-10">
                                     <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
                                 </div>
                             )}
