@@ -47,13 +47,23 @@ function Navbar(){
                     <li className="hover:text-black dark:hover:text-blue-700"><button onClick={toggleSettingsWindow} className='cursor-pointer'>Settings</button></li>
                 </ul>
                 {isSettingsOpen && (
-                    <div className='absolute bg-white dark:bg-gray-800 dark:border-gray-500 shadow-black shadow-2xl p-3 border-2 border-gray-300 top-12 right-0 z-50'>
-                        <ul>
-                            <li><button className='btn-settings' title={`Switch to ${theme === "dark" ? "light theme" : "dark theme"} `} onClick={toggleTheme}>Change Theme</button></li>
-                            <hr className='text-gray-200 dark:text-gray-500' />
-                            <li><button className='btn-settings'>Logout</button></li>
-                        </ul>
-                    </div>
+                    <>
+                        <div className="fixed inset-0 z-40 bg-black/50" onClick={toggleSettingsWindow}/>
+
+                        <div className="absolute top-12 right-0 z-50 border-2 border-gray-300 bg-white p-3 shadow-2xl shadow-black dark:border-gray-500 dark:bg-gray-800">
+                            <ul>
+                                <li>
+                                    <button className="btn-settings" title={`Switch to ${theme === 'dark' ? 'light theme' : 'dark theme'}`} onClick={toggleTheme}>
+                                        Change Theme
+                                    </button>
+                                </li>
+                                <hr className="text-gray-200 dark:text-gray-500" />
+                                <li>
+                                    <button className="btn-settings">Logout</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </>
                 )}
                 
             </nav>
