@@ -80,12 +80,17 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } text-white px-2 rounded py-1 cursor-pointer hover:opacity-70`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500' : 'bg-green-500' } relative text-white px-2 rounded py-1 cursor-pointer hover:opacity-70 z-20`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
+                                        
+
                             {isCreateOpen && (
-                                <div className="absolute bg-white shadow-2xl p-5 rounded-2xl z-10">
-                                    <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                                <div>
+                                    <div className="absolute bg-white shadow-black shadow-2xl p-5 border-2 border-gray-300 rounded-2xl z-50">
+                                        <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                                    </div>
+                                    <div className='fixed inset-0 z-10' onClick={toggleCreateWindow}></div>
                                 </div>
                             )}
                         </div>
@@ -106,8 +111,6 @@ function App() {
                         No appointments scheduled yet...
                     </p>
                 )}
-
-                
 
                 <AppointmentListContainer>
                 {   
