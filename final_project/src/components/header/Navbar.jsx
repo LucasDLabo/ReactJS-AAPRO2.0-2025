@@ -29,10 +29,8 @@ function Navbar(){
 
         if (newTheme === 'dark') {
             document.documentElement.classList.add('dark');
-            console.warn('Dark theme selected');
         } else {
             document.documentElement.classList.remove('dark');
-            console.warn('Light theme selected');
         }
     };
 
