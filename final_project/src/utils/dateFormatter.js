@@ -1,4 +1,4 @@
-import { parseLocalDate } from "./parseLocalDate";
+import parseLocalDate from "./parseLocalDate";
 
 export default function dateFormatter(dateString){
 
