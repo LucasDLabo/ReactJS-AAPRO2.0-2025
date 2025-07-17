@@ -1,17 +1,71 @@
+import { useState, useEffect } from 'react'
+
 function Navbar(){
+    const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
+    const toggleSettingsWindow = () => {
+        setIsSettingsOpen(!isSettingsOpen);
+    }
+
+    const [theme, setTheme] = useState('light');
+    
+    useEffect(() => {
+    const storedTheme = localStorage.getItem('color-theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+        document.documentElement.classList.add('dark');
+        setTheme('dark');
+    } else {
+        document.documentElement.classList.remove('dark');
+        setTheme('light');
+    }
+    }, []);
+
+    const toggleTheme = () => {
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
+        localStorage.setItem('color-theme', newTheme);
+
+        if (newTheme === 'dark') {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    };
+
     return(
         <>
-            <nav className="flex justify-between h-12 bg-gray-50">
-                <h3 className=" px-10 text-2xl italic font-bold items-center flex justify-center">Medical Institution</h3>
-                <ul className="flex gap-5 px-5 items-center font-bold text-gray-500 ">
-                    <li className="hover:text-black"><a href="">HOME</a></li>
-                    <li className="text-blue-800"><a href="">APPOINTMENTS</a></li>
-                    <li className="hover:text-black"><a href="">SERVICES</a></li>
-                    <li className="hover:text-black"><a href="">LOGOUT</a></li>
+            <nav className="flex h-12 justify-between bg-gray-50 dark:bg-gray-900">
+                <h3 className="flex items-center justify-center px-10 text-2xl font-bold italic dark:text-gray-200">Medical Institution</h3>
+                <ul className="flex items-center gap-5 px-5 font-bold text-gray-500 dark:text-gray-200">
+                    <li className="hover:text-black dark:hover:text-blue-700"><a href="">Home</a></li>
+                    <li className="hover:text-black dark:hover:text-blue-700"><a href="">Services</a></li>
+                    <li className="text-blue-700"><a href="">APPOINTMENTS</a></li>
+                    <li className="hover:text-black dark:hover:text-blue-700"><button onClick={toggleSettingsWindow} className='cursor-pointer'>Settings</button></li>
                 </ul>
+                {isSettingsOpen && (
+                    <>
+                        <div className="fixed inset-0 z-40" onClick={toggleSettingsWindow}/>
+
+                        <div className="absolute top-12 right-0 z-50 border-2 border-gray-300 bg-white p-3 shadow-2xl shadow-black dark:border-gray-500 dark:bg-gray-800">
+                            <ul>
+                                <li>
+                                    <button className="btn-settings" title={`Switch to ${theme === 'dark' ? 'light theme' : 'dark theme'}`} onClick={toggleTheme}>
+                                        Change Theme
+                                    </button>
+                                </li>
+                                <hr className="text-gray-200 dark:text-gray-500" />
+                                <li>
+                                    <button className="btn-settings">Logout</button>
+                                </li>
+                            </ul>
+                        </div>
+                    </>
+                )}
                 
             </nav>
-            <hr id='top' className=" border-1 text-blue-800"/>
+            <hr id='top' className="border-1 text-blue-800"/>
         </>
     )
 }
