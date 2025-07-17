@@ -1,4 +1,5 @@
 import { use, useState } from 'react'
+import { parseLocalDate } from '../../utils/parseLocaldate';
 
 function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
 
@@ -11,17 +12,21 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
         e.preventDefault();
 
         if (!name.trim() || !date.trim() || !time.trim() || !specialty.trim()) {
-            alert('Make sure all fields are completed!');
+            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before submitting.");
             return;
         }
 
-        if (new Date(date).getTime() <= Date.now()){
-            alert('You cannot schedule an appointment for today or a past date!')
+        const today = new Date();
+
+        const selectedDate = parseLocalDate(date);
+
+        if (selectedDate.getTime() <= today.getTime()) {
+            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for today or a past date!");
             return;
         }
 
         if(appoint.some((i) => i.date == date && i.time == time && i.specialty == specialty)){
-            alert('Date already appointed!');
+            alert("❌ Appointment Scheduling Failed\n Date already taken.");
             return;
         }
 
@@ -40,7 +45,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                 />
 
                 <label htmlFor="selectedDate" className='dark:text-gray-300'>Select Date: </label>
-                <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800 scheme-light-dark dark:bg-gray-800"
+                <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800 dark:scheme-light-dark dark:bg-gray-800"
                     value={date}
                     onChange={(e) => setDatetime(e.target.value)}
                 />

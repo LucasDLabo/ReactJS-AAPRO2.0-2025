@@ -88,7 +88,7 @@ function App() {
     tomorrow.setDate(today.getDate() + 1);
 
     const nextDays = new Date(today);
-    nextDays.setDate(today.getDate() + 3);
+    nextDays.setDate(today.getDate() + 4);
 
     const thisMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
@@ -98,7 +98,7 @@ function App() {
     const tomorrowAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === tomorrow.toDateString());
     const nextDaysAppointments = filteredAppoints.filter(a => toDate(a.date) > tomorrow && toDate(a.date) <= nextDays);
     const monthAppointments = filteredAppoints.filter(a => toDate(a.date) > nextDays && toDate(a.date) <= thisMonth);
-    const pastAppointments = filteredAppoints.filter(a => toDate(a.date) < today);
+    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() < today.toDateString());
     const incomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
 
 
@@ -119,7 +119,7 @@ function App() {
         return (
 
             <div className="mt-4">
-                <h3 className="px-30 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
+                <h3 className="px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
                 <AppointmentListContainer>
                     {appointments.map((data) => (
                         
@@ -151,7 +151,7 @@ function App() {
     return (
         <>  
             <header>
-                <Navbar></Navbar>
+                <Navbar />
             </header>
                 
             <main className='min-h-screen'>
@@ -162,7 +162,7 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 dark:bg-red-800' : 'bg-green-500 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer hover:opacity-70 z-20`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 hover:bg-green-800 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer z-20 transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
@@ -190,7 +190,7 @@ function App() {
                         </p>
 
                         <div className="flex gap-4 pt-2 items-center">
-                            <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                            <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700" title='Click to see all the appointments'>
                                 <input
                                 type="radio"
                                 name="viewMode"
@@ -201,7 +201,7 @@ function App() {
                                 See All
                             </label>
 
-                            <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700">
+                            <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700" title='Click to group appointments by day'>
                                 <input
                                 type="radio"
                                 name="viewMode"
@@ -236,7 +236,7 @@ function App() {
                         <hr className='mx-30 mt-8 text-gray-300'/>
                         {renderSection("Tomorrow...", tomorrowAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
-                        {renderSection("Next 3 days...", nextDaysAppointments)}
+                        {renderSection("Next 4 days...", nextDaysAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
                         {renderSection("This Month...", monthAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
