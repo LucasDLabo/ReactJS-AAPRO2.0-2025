@@ -1,5 +1,5 @@
 import { use, useState } from 'react'
-import { parseLocalDate } from '../../utils/parseLocaldate';
+import parseLocalDate from '../../utils/parseLocalDate'
 
 function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
 
