@@ -119,7 +119,7 @@ function App() {
         return (
 
             <div className="mt-4">
-                <h3 className="px-30 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
+                <h3 className="px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
                 <AppointmentListContainer>
                     {appointments.map((data) => (
                         

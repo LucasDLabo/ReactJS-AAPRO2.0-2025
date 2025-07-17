@@ -112,7 +112,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                     <hr className="text-gray-500"/>
                     <div className="flex flex-grow flex-col justify-evenly gap-2 py-5">
                         <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Patient name:</b> {name}</li>
-                        <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Date:</b> {formatted_date} at {time}hs</li>
+                        <li className='dark:text-gray-300' title={`Date: ${date}`}><b className="text-blue-900 dark:text-blue-500">Date:</b> {formatted_date} at {time}hs</li>
                         <li className='dark:text-gray-300'><b className="text-blue-900 dark:text-blue-500">Medical field:</b> {specialty}</li>
                     </div>
                     
