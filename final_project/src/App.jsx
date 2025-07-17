@@ -98,7 +98,7 @@ function App() {
     const tomorrowAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === tomorrow.toDateString());
     const nextDaysAppointments = filteredAppoints.filter(a => toDate(a.date) > tomorrow && toDate(a.date) <= nextDays);
     const monthAppointments = filteredAppoints.filter(a => toDate(a.date) > nextDays && toDate(a.date) <= thisMonth);
-    const pastAppointments = filteredAppoints.filter(a => toDate(a.date) < today);
+    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() < today.toDateString());
     const incomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
 
 

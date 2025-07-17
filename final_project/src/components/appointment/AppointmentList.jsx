@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Modal from '../../modal/Modal'
+import { parseLocalDate } from '../../utils/parseLocaldate';
 
 function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
 
@@ -24,17 +25,21 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
         e.preventDefault();
 
         if (!getName.trim() || !getDate.trim() || !getTime.trim() || !getSpecialty.trim()) {
-            alert('Make sure all fields are completed!');
+            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before modifying.");
             return;
         }
 
-        if (new Date(getDate).getTime() <= Date.now() && getDate != date ){
-            alert('You cannot schedule an appointment for today or a past date!')
+        const today = new Date();
+        
+        const selectedDate = parseLocalDate(getDate);
+
+        if (selectedDate.getTime() <= today.getTime() && selectedDate != getDate ) {
+            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for a past date!");
             return;
         }
 
         if(appoint.some((i) => i.id !== id && i.date == getDate && i.time == getTime && i.specialty == getSpecialty)){
-            alert('Date already appointed!');
+            alert("❌ Appointment Scheduling Failed\n Date already taken.");
             return;
         }
 

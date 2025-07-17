@@ -12,7 +12,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
         e.preventDefault();
 
         if (!name.trim() || !date.trim() || !time.trim() || !specialty.trim()) {
-            alert('Make sure all fields are completed!');
+            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before submitting.");
             return;
         }
 
@@ -21,12 +21,12 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
         const selectedDate = parseLocalDate(date);
 
         if (selectedDate.getTime() <= today.getTime()) {
-            alert('You cannot schedule an appointment for today or a past date!');
+            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for today or a past date!");
             return;
         }
 
-        if(appoint.some((i) => i.date == date && i.time === time && i.specialty == specialty)){
-            alert('Date already appointed!');
+        if(appoint.some((i) => i.date == date && i.time == time && i.specialty == specialty)){
+            alert("❌ Appointment Scheduling Failed\n Date already taken.");
             return;
         }
 
