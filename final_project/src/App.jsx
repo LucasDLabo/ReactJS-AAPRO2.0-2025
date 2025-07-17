@@ -88,7 +88,7 @@ function App() {
     tomorrow.setDate(today.getDate() + 1);
 
     const nextDays = new Date(today);
-    nextDays.setDate(today.getDate() + 3);
+    nextDays.setDate(today.getDate() + 4);
 
     const thisMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
@@ -236,7 +236,7 @@ function App() {
                         <hr className='mx-30 mt-8 text-gray-300'/>
                         {renderSection("Tomorrow...", tomorrowAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
-                        {renderSection("Next 3 days...", nextDaysAppointments)}
+                        {renderSection("Next 4 days...", nextDaysAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
                         {renderSection("This Month...", monthAppointments)}
                         <hr className='mx-30 mt-8 text-gray-300'/>
