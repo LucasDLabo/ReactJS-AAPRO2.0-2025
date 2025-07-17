@@ -98,8 +98,8 @@ export default[
     {
         id: 13,
         name: 'Benjamín Díaz',
-        date: '2025-07-14',
-        time: '8:30',
+        date: '2025-07-17',
+        time: '9:30',
         specialty: 'Pediatrics',
         formatted_date: 'Thursday, July 17, 2025',
     },
