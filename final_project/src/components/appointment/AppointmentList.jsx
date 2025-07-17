@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import Modal from '../../modal/Modal'
-import { parseLocalDate } from '../../utils/parseLocaldate';
 
 function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
 
