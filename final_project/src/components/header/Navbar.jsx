@@ -7,6 +7,11 @@ function Navbar(){
         setIsSettingsOpen(!isSettingsOpen);
     }
 
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const toggleMobileMenuWindow = () => {
+        setIsMobileMenuOpen(!isMobileMenuOpen);
+    }
+
     const [theme, setTheme] = useState('light');
     
     useEffect(() => {
@@ -36,14 +41,75 @@ function Navbar(){
 
     return(
         <>
-            <nav className="flex h-12 justify-between bg-gray-50 dark:bg-gray-900 ">
-                <h3 className="flex items-center justify-center px-10 py-3 text-xl font-bold text-blue-800 italic dark:text-gray-200">
+        {/* Menú Mobile Full Screen */}
+            {isMobileMenuOpen && (
+                <section>
+                    <div className="fixed inset-0 z-10 bg-black/60" onClick={toggleMobileMenuWindow}/>
+                
+                    <div className="fixed z-10 top-0 right-0 w-7/12 h-screen bg-gray-50 dark:bg-gray-900 dark:text-gray-200 flex flex-col items-center justify-center text-3xl transition-all duration-300">
+                        <ul className="flex flex-col gap-2 px-5 font-bold text-gray-500 dark:text-gray-200 text-2xl">
+                            <li><a href="">Home</a></li>
+                            <li><a href="">Services</a></li>
+                            <li className="text-blue-700"><button title='Current Page'>Appointments</button></li>
+                            <hr />
+                            <li>
+                                <button className="rounded text-start font-medium dark:font-medium text-gray-400 text-xl gap-1 dark:text-gray-600 flex items-center" title={`Switch to ${theme === 'dark' ? 'light theme' : 'dark theme'}`} onClick={toggleTheme}>
+                                    Change Theme
+                                    {
+                                        theme === 'dark' ? 
+                                        <div>
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                <path d="M12 2.25a.75.75 0 0 1 .75.75v2.25a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM7.5 12a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM18.894 6.166a.75.75 0 0 0-1.06-1.06l-1.591 1.59a.75.75 0 1 0 1.06 1.061l1.591-1.59ZM21.75 12a.75.75 0 0 1-.75.75h-2.25a.75.75 0 0 1 0-1.5H21a.75.75 0 0 1 .75.75ZM17.834 18.894a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 1 0-1.061 1.06l1.59 1.591ZM12 18a.75.75 0 0 1 .75.75V21a.75.75 0 0 1-1.5 0v-2.25A.75.75 0 0 1 12 18ZM7.758 17.303a.75.75 0 0 0-1.061-1.06l-1.591 1.59a.75.75 0 0 0 1.06 1.061l1.591-1.59ZM6 12a.75.75 0 0 1-.75.75H3a.75.75 0 0 1 0-1.5h2.25A.75.75 0 0 1 6 12ZM6.697 7.757a.75.75 0 0 0 1.06-1.06l-1.59-1.591a.75.75 0 0 0-1.061 1.06l1.59 1.591Z" />
+                                            </svg></div>
+                                        :
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-5">
+                                                <path fillRule="evenodd" d="M9.528 1.718a.75.75 0 0 1 .162.819A8.97 8.97 0 0 0 9 6a9 9 0 0 0 9 9 8.97 8.97 0 0 0 3.463-.69.75.75 0 0 1 .981.98 10.503 10.503 0 0 1-9.694 6.46c-5.799 0-10.5-4.7-10.5-10.5 0-4.368 2.667-8.112 6.46-9.694a.75.75 0 0 1 .818.162Z" clipRule="evenodd" />
+                                            </svg>
+                                    }
+                                </button>
+                            </li>
+                            <li>
+                                <button className="rounded text-start font-medium dark:font-medium text-gray-400 text-xl gap-1 dark:text-gray-600 flex items-center" title='Exit'>
+                                    Logout
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                                        <path fillRule="evenodd" d="M12 2.25a.75.75 0 0 1 .75.75v9a.75.75 0 0 1-1.5 0V3a.75.75 0 0 1 .75-.75ZM6.166 5.106a.75.75 0 0 1 0 1.06 8.25 8.25 0 1 0 11.668 0 .75.75 0 1 1 1.06-1.06c3.808 3.807 3.808 9.98 0 13.788-3.807 3.808-9.98 3.808-13.788 0-3.808-3.807-3.808-9.98 0-13.788a.75.75 0 0 1 1.06 0Z" clipRule="evenodd" />
+                                    </svg>
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </section>
+            )}
+
+            <nav className="flex h-12 justify-between bg-gray-50 dark:bg-gray-900 z-20 relative">
+                <h3 className="flex items-center justify-center px-2 md:px-10 py-3 text-xl font-bold text-blue-800 italic dark:text-gray-200">
                     <svg xmlns="http://www.w3.org/2000/svg" className='size-6 mt-1' fill="currentColor" viewBox="0 0 256 256">
                         <path d="M240,128a8,8,0,0,1-8,8H204.94l-37.78,75.58A8,8,0,0,1,160,216h-.4a8,8,0,0,1-7.08-5.14L95.35,60.76,63.28,131.31A8,8,0,0,1,56,136H24a8,8,0,0,1,0-16H50.85L88.72,36.69a8,8,0,0,1,14.76.46l57.51,151,31.85-63.71A8,8,0,0,1,200,120h32A8,8,0,0,1,240,128Z"></path>
                     </svg>
                     MedInstitution
                 </h3>
-                <ul className="flex items-center gap-5 px-5 font-bold text-gray-500 dark:text-gray-200">
+
+                <div>
+                    <button className="md:hidden aspect-square h-full text-gray-400" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+                        {isMobileMenuOpen ? 
+                        (
+                        <div className='flex justify-center w-full h-full text-4xl'>
+                            &times;
+                        </div>
+                        )
+                        : 
+                        (
+                        <div className='flex justify-center items-center'>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-9">
+                                <path fillRule="evenodd" d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z" clipRule="evenodd" />
+                            </svg>
+                        </div>
+                        )}
+                    </button>
+
+                    
+                </div>
+                <ul className="hidden md:flex items-center gap-5 px-5 font-bold text-gray-500 dark:text-gray-200">
                     <li className="hover:text-black dark:hover:text-blue-700"><a href="">Home</a></li>
                     <li className="hover:text-black dark:hover:text-blue-700"><a href="">Services</a></li>
                     <li className="text-blue-700"><button className='cursor-pointer' title='Current Page'>APPOINTMENTS</button></li>
