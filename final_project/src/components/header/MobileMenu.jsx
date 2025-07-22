@@ -12,7 +12,7 @@ function MobileMenu({ isOpen, onClose, children }){
                     <ul className="flex flex-col gap-2 px-5 text-2xl font-bold text-gray-500 dark:text-gray-200">
                         <li><a href="">Home</a></li>
                         <li><a href="">Services</a></li>
-                        <li className="text-blue-700"><button title='Current Page'>Appointments</button></li>
+                        <li className="text-blue-700"><button>Appointments</button></li>
                         <hr />
                         {/* Switch Theme */}
                         <li>

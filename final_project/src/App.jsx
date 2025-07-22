@@ -155,9 +155,9 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex items-end justify-between px-30 h-30 mb-10'>
+                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-30'>
                     
-                    {/* <div className='w-full'>
+                    <div className='w-full'>
                         <div className='mt-4'>
                             <h2 className='title'>Appointments List</h2>
                         </div>
@@ -213,7 +213,7 @@ function App() {
                             </label>
                         </div>
                         
-                    </div> */}
+                    </div>
                 
                 </section>
 
