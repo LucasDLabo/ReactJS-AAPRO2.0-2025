@@ -31,7 +31,7 @@ A modern and intuitive web application for managing medical appointments. Built 
 
 # 📚 About the Course
 <p align="center">
-   <img src="./readme/img/RDLogo.png"/>
+   <img src="https://raw.githubusercontent.com/LucasDLabo/ReactJS-AAPRO2.0-2025/refs/heads/readme/final_project/readme/img/RDLogo.png"/>
 <p>
 
 This project was developed as part of the React Frontend Development course provided by [Revolución Digital](https://revoluciondigital.com.ar) — an educational platform that helps young people enter the tech through training in high-demand digital skills.
