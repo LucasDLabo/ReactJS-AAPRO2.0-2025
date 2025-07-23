@@ -162,7 +162,7 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 md:hover:bg-green-800 dark:bg-green-700' } relative rounded px-2 py-1 text-white md:z-20 md:cursor-pointer md:transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 md:hover:bg-green-800 dark:bg-green-700' } relative rounded px-2 py-1 text-white md:z-30 md:cursor-pointer md:transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
