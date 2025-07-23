@@ -108,7 +108,7 @@ function App() {
             return (
                 <>
                     <div className='flex flex-col'>
-                        <h3 className="px-30 font-mono text-xl font-semibold text-blue-800 italic opacity-65 dark:text-blue-900">{title}</h3>
+                        <h3 className="mt-5 md:mt-0 md:px-30 font-mono text-xl font-semibold text-blue-800 italic opacity-65 dark:text-blue-900">{title}</h3>
                         <div className='flex h-full items-center justify-center'>
                             <p className="flex h-full items-center text-center font-mono text-gray-500 italic">No appointments on this group...</p>
                         </div>
@@ -119,7 +119,7 @@ function App() {
         return (
 
             <div className="mt-4">
-                <h3 className="px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
+                <h3 className="md:px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
                 <AppointmentListContainer>
                     {appointments.map((data) => (
                         
@@ -162,7 +162,7 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 hover:bg-green-800 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer z-20 transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 hover:bg-green-800 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer md:z-20 transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
@@ -179,7 +179,7 @@ function App() {
                     </div>
                     <div className="w-full max-w-sm">
                         <input
-                            type="text"
+                            type="search"
                             placeholder="Search by name, date, time or specialty..."
                             className="w-full rounded border border-gray-200 px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
                             value={search}
@@ -233,15 +233,15 @@ function App() {
                 {viewMode === 'grouped' && (
                     <>
                         {renderSection("Today...", todayAppointments)} 
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Tomorrow...", tomorrowAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Next 4 days...", nextDaysAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("This Month...", monthAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Incoming...", incomingAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         <div className='opacity-60 dark:opacity-30'>
                         {renderSection("Previous Appointments", pastAppointments)}
                         </div>
