@@ -84,7 +84,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     />
 
                                     <label htmlFor="selectedDate">* Select Date: </label>
-                                    <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800 dark:scheme-light-dark"
+                                    <input type="date" name="selectedDate" id="selectedDate" className="mb-3 w-full border-b-2 border-blue-800 dark:scheme-light-dark"
                                         value={getDate}
                                         onChange={(e) => setDate(e.target.value)}
                                     />

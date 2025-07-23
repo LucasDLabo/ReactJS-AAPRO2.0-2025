@@ -41,7 +41,7 @@ function Modal({ isOpen, onClose, children }) {
             <div
                 className={`relative w-auto min-w-5/12 transform rounded border-2 border-gray-300 bg-white p-6 shadow-lg duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300
                 ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}>
-                <button onClick={onClose} className="absolute top-0 right-2 cursor-pointer text-2xl text-gray-500 hover:text-black dark:hover:text-white">
+                <button onClick={onClose} className="absolute top-0 right-2 aspect-square w-10 cursor-pointer text-2xl text-gray-500 hover:text-black dark:hover:text-white">
                 x
                 </button>
                 {children}

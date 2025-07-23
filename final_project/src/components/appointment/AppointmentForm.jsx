@@ -45,7 +45,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
                 />
 
                 <label htmlFor="selectedDate" className='dark:text-gray-300'>Select Date: </label>
-                <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800 dark:scheme-light-dark dark:bg-gray-800"
+                <input type="date" name="selectedDate" id="selectedDate" className="mb-3 w-full border-b-2 border-blue-800 dark:bg-gray-800 dark:scheme-light-dark"
                     value={date}
                     onChange={(e) => setDatetime(e.target.value)}
                 />
