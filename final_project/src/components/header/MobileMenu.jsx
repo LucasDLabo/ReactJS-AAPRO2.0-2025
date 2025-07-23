@@ -8,7 +8,7 @@ function MobileMenu({ isOpen, onClose, children }){
             <section>
                 <div className="fixed z-10 h-screen w-full bg-black/60" onClick={onClose}/>
             
-                <div className="fixed top-0 right-0 z-10 flex h-screen w-7/12 flex-col items-center justify-center bg-gray-50 text-3xl dark:bg-gray-900 dark:text-gray-200">
+                <div className="fixed top-0 right-0 z-10 flex h-screen w-8/12 flex-col items-center justify-center bg-gray-50 text-3xl dark:bg-gray-900 dark:text-gray-200">
                     <ul className="flex flex-col gap-2 px-5 text-2xl font-bold text-gray-500 dark:text-gray-200">
                         <li><a href="">Home</a></li>
                         <li><a href="">Services</a></li>
