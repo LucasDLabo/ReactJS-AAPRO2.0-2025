@@ -162,17 +162,17 @@ function App() {
                             <h2 className='title'>Appointments List</h2>
                         </div>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 hover:bg-green-800 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer md:z-20 transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 md:hover:bg-green-800 dark:bg-green-700' } relative rounded px-2 py-1 text-white md:z-20 md:cursor-pointer md:transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
 
                             {isCreateOpen && (
                                 <div>
-                                    <div className="absolute z-50 rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black dark:bg-gray-800 dark:text-gray-400">
+                                    <div className="absolute z-50 w-10/12 rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black md:w-auto dark:bg-gray-800 dark:text-gray-400">
                                         <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
                                     </div>
-                                    <div className='fixed inset-0 z-10' onClick={toggleCreateWindow}></div>
+                                    <div className='fixed inset-0 z-20' onClick={toggleCreateWindow}></div>
                                 </div>
                             )}
                         </div>
