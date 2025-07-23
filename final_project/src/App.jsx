@@ -155,7 +155,7 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-30'>
+                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-20'>
                     
                     <div className='w-full'>
                         <div className='mt-4'>
