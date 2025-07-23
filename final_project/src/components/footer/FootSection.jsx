@@ -42,7 +42,7 @@ function FootSection(){
                         </p>
 
                         <div className="flex md:flex-row flex-col w-1/2 md:w-3/4 justify-center gap-4">
-                            <input type="email" name="" id="" placeholder="Enter your email here" className="mt-3 md:w-1/2 rounded bg-gray-600 px-2 py-1"/>
+                            <input type="email" name="" id="" placeholder="Enter your email here" className="md:text-md mt-3 rounded bg-gray-600 px-2 py-1 text-center text-sm md:w-1/2"/>
 
                             <button type="submit" className="md:mt-3 md:w-34 cursor-pointer rounded bg-blue-700 px-3 py-1 transition-colors hover:bg-blue-500 dark:bg-blue-950 dark:hover:bg-blue-800" title="Confirm Subscription">Send me News!</button>
                         </div>
