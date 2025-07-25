@@ -57,7 +57,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
 
     return (
         <>
-            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-700">
+            <div className="w-72 max-w-[90vw] rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-700">
                 <ul className="flex min-h-52 flex-col">
                     <div className='flex items-center justify-between'>
                         <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>

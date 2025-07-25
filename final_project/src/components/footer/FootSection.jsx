@@ -6,7 +6,7 @@ function FootSection(){
 
                 <div className="flex h-full flex-col justify-between py-5 md:flex-row">
                     <section className="mx-5 flex flex-col items-center justify-center border-b-1 border-gray-500 md:border-b-0 md:mx-0 md:w-full md:border-r-1">
-                        <h3 className="text-2xl font-bold italic md:text-3xl">What's New?</h3>
+                        <h3 className="text-center text-2xl font-bold italic md:text-3xl">What's New?</h3>
                         <p className="text-center">
                             Learn more about the lastest news on our <a href="" className="link-a" title="Go to the Blog site">Blogsite</a>
                             <br />
@@ -33,8 +33,8 @@ function FootSection(){
 
                     </section>
 
-                    <form action="" className="mt-5 flex w-full flex-col items-center justify-center px-2 md:mt-0 md:px-0">
-                        <h3 className="mb-1 text-2xl font-bold italic md:text-3xl">Subcribe to our Newsletter!</h3>
+                    <form action="" className="mt-5 flex w-full flex-col items-center justify-center px-2 md:mt-0 md:px-2">
+                        <h3 className="mb-1 text-center text-2xl font-bold italic md:text-3xl">Subcribe to our Newsletter!</h3>
                         <p className=" text-center">
                             Be the first to know when we launch, share updates or post something new. 
                             <br />

@@ -155,7 +155,7 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-20'>
+                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-0 lg:px-20'>
                     
                     <div className='w-full'>
                         <div className='mt-4'>
@@ -181,7 +181,7 @@ function App() {
                         <input
                             type="search"
                             placeholder="Search by name, date, time or specialty..."
-                            className="w-full rounded border border-gray-200 px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
+                            className="w-full rounded border border-gray-200 text-sm md:text-lg px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
@@ -247,7 +247,15 @@ function App() {
                         </div>
                     </>
                 )}
-                {showBackToTopButton && ( <a href="#top" title='Back to Top' className='fixed right-6 bottom-6 h-10 w-10 rounded-full bg-blue-900 text-center text-xl leading-[40px] font-bold text-white hover:opacity-60'>^</a>)}
+                {showBackToTopButton && ( 
+                    <a href="#top" title='Back to Top' 
+                        className='fixed right-6 bottom-6 rounded-full bg-blue-900 text-center text-xl p-2 font-bold text-white md:hover:opacity-60 md:active:scale-95'
+                        >
+                        <div className='flex aspect-square w-7 justify-center items-center'>
+                            ↑
+                        </div>
+                    </a>
+                    )}
             </main>
             
             <footer>
