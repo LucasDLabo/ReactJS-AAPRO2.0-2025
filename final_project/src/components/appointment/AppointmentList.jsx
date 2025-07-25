@@ -26,22 +26,27 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
     const submit = (e) => {
         e.preventDefault();
 
+        if (getName === name && getDate === date && getTime === time && getSpecialty === specialty) {
+            setShowEditModal(false);
+            return;
+        }
+
         if (!getName.trim() || !getDate.trim() || !getTime.trim() || !getSpecialty.trim()) {
-            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before modifying.");
+            showToast("Please complete all required fields before submitting", "error");
             return;
         }
 
         const today = new Date();
-        
+
         const selectedDate = parseLocalDate(getDate);
 
-        if (selectedDate.getTime() <= today.getTime() && selectedDate != getDate ) {
-            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for a past date!");
+        if (selectedDate.getTime() <= today.getTime() && date != getDate ) {
+            showToast("You cannot schedule an appointment for today or a past date!", "error");
             return;
         }
 
         if(appoint.some((i) => i.id !== id && i.date == getDate && i.time == getTime && i.specialty == getSpecialty)){
-            alert("❌ Appointment Scheduling Failed\n Date already taken.");
+            showToast("Date already taken. Please choose another one", "error");
             return;
         }
 
