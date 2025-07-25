@@ -68,6 +68,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                             </svg>
                         </button>
                         <Modal isOpen={showEditModal} onClose={() => setShowEditModal(false)}>
+                            {/* Edit Form */}
                             <div className='flex flex-col items-start gap-3'>
                                 <h3 className='text-lg font-bold'> 
                                     <i className='text-orange-400'>Appoint Number #{id}</i> 
@@ -112,15 +113,15 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                         )
                                     }
                                     </select>
-                                    <div className='flex h-full items-center justify-between gap-5 text-xs min-[550px]:text-xl'>
-                                        <a className='flex items-center gap-1 cursor-pointer rounded bg-gray-300 px-3 py-0.5 text-center text-gray-600 transition-colors hover:bg-gray-400 hover:text-black dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>
+                                    <div className='flex h-full flex-col items-start justify-between gap-3 text-xs min-[550px]:text-xl md:flex-row md:items-center md:gap-5'>
+                                        <a className='flex cursor-pointer items-center gap-1 rounded bg-gray-300  px-3 py-1 text-center text-gray-600 transition-colors hover:bg-gray-400 hover:text-black md:py-0.5 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>
                                             Reset Changes
                                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3 min-[550px]:size-4">
                                                 <path fillRule="evenodd" d="M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z" clipRule="evenodd" />
                                             </svg>
 
                                         </a>
-                                        <button className='btn-delete bg-blue-600 px-5 transition-colors hover:bg-blue-500' title='Confirm Changes'>Confirm Changes</button>
+                                        <button className='btn-delete w-full bg-blue-600 px-5 py-1.5 transition-colors hover:bg-blue-500 md:w-auto md:py-0.5' title='Confirm Changes'>Confirm Changes</button>
                                     </div>
                                 </form>
                             </div>

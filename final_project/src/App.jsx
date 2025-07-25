@@ -155,18 +155,15 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex flex-col items-start gap-1.5 md:mb-10 md:h-30 md:flex-row md:justify-between md:gap-0 md:px-0 lg:px-20'>
+                <section className='flex flex-col items-start gap-1.5 p-2 md:mb-10 md:h-30 md:flex-row md:justify-between md:gap-0 md:px-0 lg:px-20'>
                     
                     <div className='w-full'>
-                        <div className='mt-4'>
-                            <h2 className='title'>Appointments List</h2>
-                        </div>
+                        <h2 className='title'>Appointments List</h2>
                         <div>
                             <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 md:hover:bg-green-800 dark:bg-green-700' } relative rounded px-2 py-1 text-white md:z-30 md:cursor-pointer md:transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
-
                             {isCreateOpen && (
                                 <div>
                                     <div className="absolute z-50 w-[90%] rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black md:w-auto dark:bg-gray-800 dark:text-gray-400">
@@ -177,9 +174,10 @@ function App() {
                             )}
                         </div>
                     </div>
-                    <div className="flex h-full w-full flex-col justify-center md:max-w-sm">
+                    <div className="flex w-full flex-col justify-center md:pt-2 md:max-w-sm">
                         <input
                             type="search"
+                            name='searchBar'
                             placeholder="Search by name, date, time or specialty..."
                             className="w-full rounded border border-gray-200 text-sm md:text-lg px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
                             value={search}
@@ -216,7 +214,6 @@ function App() {
                     </div>
                 
                 </section>
-                {console.log(appoint.length)}
                 {viewMode === 'all' && (
                     <>
                         {appoint.length === 0 ? 
