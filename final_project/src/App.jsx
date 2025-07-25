@@ -155,7 +155,7 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex flex-col items-end justify-between gap-1.5 md:mb-10 md:h-30 md:flex-row md:gap-0 md:px-0 lg:px-20'>
+                <section className='flex flex-col items-start gap-1.5 md:mb-10 md:h-30 md:flex-row md:justify-between md:gap-0 md:px-0 lg:px-20'>
                     
                     <div className='w-full'>
                         <div className='mt-4'>
@@ -177,7 +177,7 @@ function App() {
                             )}
                         </div>
                     </div>
-                    <div className="w-full max-w-sm">
+                    <div className="flex h-full w-full flex-col justify-center md:max-w-sm">
                         <input
                             type="search"
                             placeholder="Search by name, date, time or specialty..."
