@@ -226,8 +226,10 @@ function App() {
                         (
                             filteredAppoints.length === 0 ? 
                             (
-                                <p className="flex h-56 md:h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic bg-red-200">
-                                    Oops! No results found :(
+                                <p className="flex h-56 items-center justify-center text-center font-mono text-2xl text-gray-400 italic md:h-[75vh]">
+                                    Oops! No results found
+                                    <br />
+                                    :(
                                 </p>
                             ) 
                             : 
