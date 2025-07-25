@@ -216,17 +216,29 @@ function App() {
                     </div>
                 
                 </section>
-
+                {console.log(appoint.length)}
                 {viewMode === 'all' && (
                     <>
-                        {filteredAppoints.length === 0 ? (
+                        {appoint.length === 0 ? 
+                        (
                             <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
                                 No appointments scheduled yet...
                             </p>
-                            ) : (
+                        )
+                        :
+                        (
+                            filteredAppoints.length === 0 ? 
+                            (
+                                <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
+                                    Oops! No results found :(
+                                </p>
+                            ) 
+                            : 
+                            (
                                 renderSection("", filteredAppoints)
                             )
-                            }
+                        )
+                        }
                     </>
                 )}
 
