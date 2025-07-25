@@ -9,6 +9,7 @@ import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
 import dateFormatter from './utils/dateFormatter.js'
+import Toast from './components/toast/Toast.jsx'
 
 function App() {
     const [appoint, setAppoint] = useState( () => {
@@ -19,6 +20,7 @@ function App() {
         const updatedAppoint = appoint.filter((i) => i.id !== id);
         setAppoint(updatedAppoint);
         localStorage.setItem('appointments', JSON.stringify(updatedAppoint));
+        showToast("Appointment deleted from the schedule", "info");
     }
     function createAppoint( {name, date, time, specialty} ){
 
@@ -139,6 +141,7 @@ function App() {
                                 onDelete={deleteAppoint}
 
                                 appoint={appoint}
+                                showToast={showToast}
                             />
                         
                     ))}
@@ -146,6 +149,11 @@ function App() {
             </div>
             
         );
+    };
+    const [toast, setToast] = useState(null);
+
+    const showToast = (message, type = "success") => {
+        setToast({ message, type });
     };
 
     return (
@@ -167,12 +175,26 @@ function App() {
                             {isCreateOpen && (
                                 <div>
                                     <div className="absolute z-50 w-[90%] rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black md:w-auto dark:bg-gray-800 dark:text-gray-400">
-                                        <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                                        <AppointmentForm 
+                                            onCreate={createAppoint}
+                                            specialties={specialties}
+                                            timetables={timetables}
+                                            appoint={appoint}
+                                            showToast={showToast}
+                                        />
                                     </div>
                                     <div className='fixed inset-0 z-20' onClick={toggleCreateWindow}></div>
                                 </div>
+                                
                             )}
                         </div>
+                        {toast && (
+                            <Toast
+                            message={toast.message}
+                            type={toast.type}
+                            onClose={() => setToast(null)}
+                            />
+                        )}
                     </div>
                     <div className="flex w-full flex-col justify-center md:pt-2 md:max-w-sm">
                         <input

@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import Modal from '../../modal/Modal'
 import parseLocalDate from '../../utils/parseLocalDate'
+import Toast from '../toast/Toast';
 
 
-function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
+function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint, showToast} ){
 
     const createdDate = new Date(`${date}T00:00:00-04:00`);
 
@@ -46,6 +47,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
 
         onUpdate( {id, name: getName, date: getDate, time: getTime, specialty: getSpecialty});
         setShowEditModal(false);
+        showToast("Changes to the appointment have been saved", "success");
     }
 
     function cleanForm(){

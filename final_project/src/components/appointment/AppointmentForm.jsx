@@ -1,7 +1,7 @@
 import { use, useState } from 'react'
 import parseLocalDate from '../../utils/parseLocalDate'
 
-function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
+function AppointmentForm( {onCreate, specialties, timetables, appoint, showToast} ){
 
     const [name, setName] = useState('');
     const [date, setDatetime] = useState('');
@@ -12,7 +12,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
         e.preventDefault();
 
         if (!name.trim() || !date.trim() || !time.trim() || !specialty.trim()) {
-            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before submitting.");
+            showToast("Please complete all required fields before submitting", "error");
             return;
         }
 
@@ -21,16 +21,17 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint} ){
         const selectedDate = parseLocalDate(date);
 
         if (selectedDate.getTime() <= today.getTime()) {
-            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for today or a past date!");
+            showToast("You cannot schedule an appointment for today or a past date!", "error");
             return;
         }
 
         if(appoint.some((i) => i.date == date && i.time == time && i.specialty == specialty)){
-            alert("❌ Appointment Scheduling Failed\n Date already taken.");
+            showToast("Date already taken. Please choose another one", "error");
             return;
         }
 
         onCreate( {name, date, time, specialty});
+        showToast("Appointment successfully scheduled!", "success");
     }
     return(
         < >
