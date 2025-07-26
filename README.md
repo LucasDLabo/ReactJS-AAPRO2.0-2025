@@ -6,11 +6,14 @@ A modern and intuitive web application for managing medical appointments. Built 
 
 - 📅 **Create, Read, Update & Delete Appointments**
 - 🔍 **Live Search** by patient name, specialty, date, time, or appointment ID.
-- 🗂️ **Grouped View** to organize appointments by **Today**, **Tomorrow**, **This Week**, **This Month**, **Past**, and **Incoming** appointments.
+- 🗂️ **Grouped View** to organize appointments by **Today**, **Tomorrow**, **This Week**, **This Month**, **Past**, and **Upcoming** appointments.
 - 🌑 **Dark Mode Toggle**
 - 🧠 **Smart Validations** to prevent booking appointments for past dates or duplicate time slots.
 - 💾 **Data Persistence** using `localStorage`.
-- 🖼️ **Responsive UI** with Tailwind CSS utility-first styling.
+- 🔥 **Toast Notifications** for visual feedback on user actions such as creating, updating, or deleting appointments.
+- 🧪 **Dynamic Mock Data** that auto-update daily to ensure realistic consistent sample content and design every time you visit the site.
+- 🖼️ **Full Responsive Design** for mobile, tablet, and desktop using Tailwind CSS with a mobile-first approach.
+- 🐳 **Dockerized Setup** for easy project launch. Just clone the reposiitory and run `docker compose-up --build`.
 
 ## 🚀 Live Demo
 
@@ -25,6 +28,7 @@ A modern and intuitive web application for managing medical appointments. Built 
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" width="80" alt="JavaScript"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" width="80" alt="Git"/>
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vercel/vercel-original.svg" width="80" alt="Vercel"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/docker/docker-plain.svg" width="80" alt="Docker"/>
 </p>
 
 ---
