@@ -110,7 +110,7 @@ function App() {
     const tomorrowAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === tomorrow.toDateString());
     const nextDaysAppointments = filteredAppoints.filter(a => toDate(a.date) > tomorrow && toDate(a.date) <= nextDays);
     const monthAppointments = filteredAppoints.filter(a => toDate(a.date) > nextDays && toDate(a.date) <= thisMonth);
-    const incomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
+    const upcomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
 
 
     const renderSection = (title, appointments) => {
@@ -281,7 +281,7 @@ function App() {
                         <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("This Month...", monthAppointments)}
                         <hr className='md:mx-30 mt-8 text-gray-300'/>
-                        {renderSection("Incoming...", incomingAppointments)}
+                        {renderSection("Upcoming...", upcomingAppointments)}
                         <hr className='md:mx-30 mt-8 text-gray-300'/>
                         <div className='opacity-60 dark:opacity-30'>
                         {renderSection("Previous Appointments", pastAppointments)}
