@@ -25,7 +25,7 @@ function Toast({ message, type = "success", onClose, duration = 4000 }){
     info: "bg-orange-500 dark:bg-amber-500"
     };
     return(
-        <div className={`fixed right-0 bottom-6 left-0 z-50 mx-5 rounded px-2 py-4 text-start shadow-md md:right-6 md:left-auto md:mx-5 md:text-start transition-all duration-300 transform ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"} ${styles[type]}`}>
+        <div className={`fixed right-0 bottom-6 left-0 z-[60] mx-5 rounded px-2 py-4 text-start shadow-md md:right-6 md:left-auto md:mx-5 md:text-start transition-all duration-300 transform ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2"} ${styles[type]}`}>
             <div className="flex items-center justify-between font-medium">
                 <span>{message}</span>
                 <button onClick={onClose} className='flex aspect-square h-full w-6 cursor-pointer items-center justify-center hover:text-gray-600'>
