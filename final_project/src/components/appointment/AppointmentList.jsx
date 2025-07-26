@@ -3,17 +3,7 @@ import Modal from '../../modal/Modal'
 import parseLocalDate from '../../utils/parseLocalDate'
 
 
-function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint} ){
-
-    const createdDate = new Date(`${date}T00:00:00-04:00`);
-
-    const formattedDate = createdDate.toLocaleDateString('en-US', {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-    });
-
+function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint, showToast} ){
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
 
@@ -25,27 +15,32 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
     const submit = (e) => {
         e.preventDefault();
 
+        if (getName === name && getDate === date && getTime === time && getSpecialty === specialty) {
+            setShowEditModal(false);
+            return;
+        }
+
         if (!getName.trim() || !getDate.trim() || !getTime.trim() || !getSpecialty.trim()) {
-            alert("❌ Appointment Scheduling Failed\n Please complete all required fields before modifying.");
+            showToast("Please complete all required fields before submitting", "error");
             return;
         }
 
         const today = new Date();
-        
         const selectedDate = parseLocalDate(getDate);
 
-        if (selectedDate.getTime() <= today.getTime() && selectedDate != getDate ) {
-            alert("❌ Appointment Scheduling Failed\n You cannot schedule an appointment for a past date!");
+        if (selectedDate.getTime() <= today.getTime() && date != getDate ) {
+            showToast("You cannot schedule an appointment for today or a past date!", "error");
             return;
         }
 
         if(appoint.some((i) => i.id !== id && i.date == getDate && i.time == getTime && i.specialty == getSpecialty)){
-            alert("❌ Appointment Scheduling Failed\n Date already taken.");
+            showToast("Date already taken. Please choose another one", "error");
             return;
         }
 
         onUpdate( {id, name: getName, date: getDate, time: getTime, specialty: getSpecialty});
         setShowEditModal(false);
+        showToast("Changes to the appointment have been saved", "success");
     }
 
     function cleanForm(){
@@ -53,11 +48,12 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
         setDate(date);
         setTime(time);
         setSpecialty(specialty);
+        showToast("Changes reverted", "raw");
     }
 
     return (
         <>
-            <div className="w-72 rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-700">
+            <div className="w-72 max-w-[90vw] rounded-md border-2 border-gray-300 bg-indigo-50 p-4 shadow-2xl shadow-gray-400 dark:bg-gray-700 dark:shadow-gray-700">
                 <ul className="flex min-h-52 flex-col">
                     <div className='flex items-center justify-between'>
                         <li className="text-xl font-bold text-gray-500 italic">Reference Number #{id}</li>
@@ -68,13 +64,14 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                             </svg>
                         </button>
                         <Modal isOpen={showEditModal} onClose={() => setShowEditModal(false)}>
+                            {/* Edit Form */}
                             <div className='flex flex-col items-start gap-3'>
                                 <h3 className='text-lg font-bold'> 
                                     <i className='text-orange-400'>Appoint Number #{id}</i> 
                                     <br /> 
                                     Please, enter the desired changes for this appointment...
                                 </h3>
-                                <form action="" onSubmit={submit} className='flex w-full flex-col px-10'>
+                                <form action="" onSubmit={submit} className='flex w-full flex-col md:px-10'>
 
                                     <label htmlFor="patientName">* Patient name: </label>
                                     <input type="text" name="patientName" id="patientName" className="mb-3 border-b-2 border-blue-800"
@@ -84,7 +81,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                     />
 
                                     <label htmlFor="selectedDate">* Select Date: </label>
-                                    <input type="date" name="selectedDate" id="selectedDate" className="mb-3 border-b-2 border-blue-800"
+                                    <input type="date" name="selectedDate" id="selectedDate" className="mb-3 w-full border-b-2 border-blue-800 dark:scheme-light-dark"
                                         value={getDate}
                                         onChange={(e) => setDate(e.target.value)}
                                     />
@@ -112,15 +109,15 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
                                         )
                                     }
                                     </select>
-                                    <div className='flex h-full items-center justify-between gap-5'>
-                                        <a className='flex items-center gap-1 cursor-pointer rounded bg-gray-300 px-3 py-0.5 text-center text-gray-600 transition-colors hover:bg-gray-400 hover:text-black dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>
+                                    <div className='flex h-full flex-col items-start justify-between gap-3 text-xs min-[550px]:text-xl md:flex-row md:items-center md:gap-5'>
+                                        <a className='flex cursor-pointer items-center gap-1 rounded bg-gray-300  px-3 py-1 text-center text-gray-600 transition-colors hover:bg-gray-400 hover:text-black md:py-0.5 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 dark:hover:text-white' onClick={cleanForm}>
                                             Reset Changes
-                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="size-3 min-[550px]:size-4">
                                                 <path fillRule="evenodd" d="M4.755 10.059a7.5 7.5 0 0 1 12.548-3.364l1.903 1.903h-3.183a.75.75 0 1 0 0 1.5h4.992a.75.75 0 0 0 .75-.75V4.356a.75.75 0 0 0-1.5 0v3.18l-1.9-1.9A9 9 0 0 0 3.306 9.67a.75.75 0 1 0 1.45.388Zm15.408 3.352a.75.75 0 0 0-.919.53 7.5 7.5 0 0 1-12.548 3.364l-1.902-1.903h3.183a.75.75 0 0 0 0-1.5H2.984a.75.75 0 0 0-.75.75v4.992a.75.75 0 0 0 1.5 0v-3.18l1.9 1.9a9 9 0 0 0 15.059-4.035.75.75 0 0 0-.53-.918Z" clipRule="evenodd" />
                                             </svg>
 
                                         </a>
-                                        <button className='btn-delete bg-blue-600 px-5 transition-colors hover:bg-blue-500' title='Confirm Changes'>Confirm Changes</button>
+                                        <button className='btn-delete w-full bg-blue-600 px-5 py-1.5 transition-colors hover:bg-blue-500 md:w-auto md:py-0.5' title='Confirm Changes'>Confirm Changes</button>
                                     </div>
                                 </form>
                             </div>

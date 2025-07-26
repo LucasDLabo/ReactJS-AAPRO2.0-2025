@@ -1,14 +1,20 @@
 import { useState, useEffect } from 'react'
 import './Style.css'
-import Navbar from './components/header/Navbar.jsx'
-import AppointmentList from './components/appointment/AppointmentList.jsx'
-import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
-import AppointmentForm from './components/appointment/AppointmentForm.jsx'
-import FootSection from './components/footer/FootSection.jsx'
+
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
 import dateFormatter from './utils/dateFormatter.js'
+import Toast from './components/toast/Toast.jsx'
+
+import Navbar from './components/header/Navbar.jsx'
+
+import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
+import AppointmentList from './components/appointment/AppointmentList.jsx'
+
+import AppointmentForm from './components/appointment/AppointmentForm.jsx'
+
+import FootSection from './components/footer/FootSection.jsx'
 
 function App() {
     const [appoint, setAppoint] = useState( () => {
@@ -19,9 +25,9 @@ function App() {
         const updatedAppoint = appoint.filter((i) => i.id !== id);
         setAppoint(updatedAppoint);
         localStorage.setItem('appointments', JSON.stringify(updatedAppoint));
+        showToast("Appointment deleted from the schedule", "info");
     }
     function createAppoint( {name, date, time, specialty} ){
-
         const formattedDate = dateFormatter(date);
 
         const newAppoint = {
@@ -35,7 +41,6 @@ function App() {
         setIsCreateOpen(false);
     }
     function editAppoint( {id, name, date, time, specialty} ){
-
         const formattedDate = dateFormatter(date);
 
         const editedAppoint = appoint.map((i) => 
@@ -92,23 +97,22 @@ function App() {
 
     const thisMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
-    const toDate = (d) => new Date(d+'T00:00:00-04:00');
-
+    const toDate = (d) => new Date(d+'T00:00:00-03:00');
+    
+    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).getTime() < today.setHours(0, 0, 0, 0));
     const todayAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === today.toDateString());
     const tomorrowAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === tomorrow.toDateString());
     const nextDaysAppointments = filteredAppoints.filter(a => toDate(a.date) > tomorrow && toDate(a.date) <= nextDays);
     const monthAppointments = filteredAppoints.filter(a => toDate(a.date) > nextDays && toDate(a.date) <= thisMonth);
-    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).getTime() < today.setHours(0, 0, 0, 0));
     const incomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
 
 
     const renderSection = (title, appointments) => {
-
         if (!appointments || appointments.length === 0) {
             return (
                 <>
                     <div className='flex flex-col'>
-                        <h3 className="px-30 font-mono text-xl font-semibold text-blue-800 italic opacity-65 dark:text-blue-900">{title}</h3>
+                        <h3 className="mt-5 font-mono text-xl font-semibold text-blue-800 italic opacity-65 md:mt-0 md:px-30 dark:text-blue-900">{title}</h3>
                         <div className='flex h-full items-center justify-center'>
                             <p className="flex h-full items-center text-center font-mono text-gray-500 italic">No appointments on this group...</p>
                         </div>
@@ -117,12 +121,10 @@ function App() {
             );
         }
         return (
-
             <div className="mt-4">
-                <h3 className="px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
+                <h3 className="pb-3 font-mono text-xl font-semibold text-blue-800 italic md:px-30 dark:text-blue-600">{title}</h3>
                 <AppointmentListContainer>
                     {appointments.map((data) => (
-                        
                             <AppointmentList 
                                 key={data.id}
                                 id={data.id}
@@ -139,13 +141,17 @@ function App() {
                                 onDelete={deleteAppoint}
 
                                 appoint={appoint}
+                                showToast={showToast}
                             />
-                        
                     ))}
                 </AppointmentListContainer>
             </div>
-            
         );
+    };
+    const [toast, setToast] = useState(null);
+
+    const showToast = (message, type = "success") => {
+        setToast({ message, type });
     };
 
     return (
@@ -155,41 +161,57 @@ function App() {
             </header>
                 
             <main className='min-h-screen'>
-                <section className='flex items-end justify-between px-30 h-30 mb-10'>
-                    
+                <section className='flex flex-col items-start gap-1.5 p-2 md:mb-10 md:h-30 md:flex-row md:justify-between md:gap-0 md:px-0 lg:px-20'>
                     <div className='w-full'>
-                        <div className='mt-4'>
-                            <h2 className='title'>Appointments List</h2>
-                        </div>
+                        <h2 className='title'>Appointments List</h2>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 hover:bg-green-800 dark:bg-green-700' } relative text-white px-2 rounded py-1 cursor-pointer z-20 transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`relative rounded px-2 py-1 text-white md:z-30 md:cursor-pointer md:transition-colors 
+                                ${isCreateOpen ? 
+                                    'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' 
+                                : 
+                                    'bg-green-600 md:hover:bg-green-800 dark:bg-green-700'}`}
+                                title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
-
                             {isCreateOpen && (
                                 <div>
-                                    <div className="absolute z-50 rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black dark:bg-gray-800 dark:text-gray-400">
-                                        <AppointmentForm onCreate={createAppoint} specialties={specialties} timetables={timetables} appoint={appoint}></AppointmentForm>
+                                    <div className="absolute z-50 w-[90%] rounded-2xl border-2 border-gray-300 bg-white p-5 shadow-2xl shadow-black md:w-auto dark:bg-gray-800 dark:text-gray-400">
+                                        <AppointmentForm 
+                                            onCreate={createAppoint}
+                                            specialties={specialties}
+                                            timetables={timetables}
+                                            appoint={appoint}
+                                            showToast={showToast}
+                                        />
                                     </div>
-                                    <div className='fixed inset-0 z-10' onClick={toggleCreateWindow}></div>
+                                    <div className='fixed inset-0 z-20' onClick={toggleCreateWindow}></div>
                                 </div>
+                                
                             )}
                         </div>
+                        {toast && (
+                            <Toast
+                            message={toast.message}
+                            type={toast.type}
+                            onClose={() => setToast(null)}
+                            />
+                        )}
                     </div>
-                    <div className="w-full max-w-sm">
+                    <div className="flex w-full flex-col justify-center md:max-w-sm md:pt-2">
                         <input
-                            type="text"
+                            type="search"
+                            name='searchBar'
                             placeholder="Search by name, date, time or specialty..."
-                            className="w-full rounded border border-gray-200 px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
+                            className="w-full rounded border border-gray-200 px-4 py-1 text-sm shadow md:text-lg dark:bg-blue-950 dark:text-gray-200"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        <p className="text-sm text-gray-400 mt-1 ">
+                        <p className="mt-1 text-sm text-gray-400">
                             Tip: Use # to search by ID
                         </p>
 
-                        <div className="flex gap-4 pt-2 items-center">
+                        <div className="flex items-center gap-4 pt-2">
                             <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700" title='Click to see all the appointments'>
                                 <input
                                 type="radio"
@@ -216,38 +238,59 @@ function App() {
                     </div>
                 
                 </section>
-
                 {viewMode === 'all' && (
                     <>
-                        {filteredAppoints.length === 0 ? (
+                        {appoint.length === 0 ? 
+                        (
                             <p className="flex h-[75vh] items-center justify-center text-center font-mono text-2xl text-gray-400 italic">
                                 No appointments scheduled yet...
                             </p>
-                            ) : (
+                        )
+                        :
+                        (
+                            filteredAppoints.length === 0 ? 
+                            (
+                                <p className="flex h-56 items-center justify-center text-center font-mono text-2xl text-gray-400 italic md:h-[75vh]">
+                                    Oops! No results found
+                                    <br />
+                                    :(
+                                </p>
+                            ) 
+                            : 
+                            (
                                 renderSection("", filteredAppoints)
                             )
-                            }
+                        )
+                        }
                     </>
                 )}
 
                 {viewMode === 'grouped' && (
                     <>
                         {renderSection("Today...", todayAppointments)} 
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Tomorrow...", tomorrowAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Next 4 days...", nextDaysAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("This Month...", monthAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         {renderSection("Incoming...", incomingAppointments)}
-                        <hr className='mx-30 mt-8 text-gray-300'/>
+                        <hr className='md:mx-30 mt-8 text-gray-300'/>
                         <div className='opacity-60 dark:opacity-30'>
                         {renderSection("Previous Appointments", pastAppointments)}
                         </div>
                     </>
                 )}
-                {showBackToTopButton && ( <a href="#top" title='Back to Top' className='fixed right-6 bottom-6 h-10 w-10 rounded-full bg-blue-900 text-center text-xl leading-[40px] font-bold text-white hover:opacity-60'>^</a>)}
+                {showBackToTopButton && ( 
+                    <a href="#top" title='Back to Top' 
+                        className='fixed right-6 bottom-6 rounded-full bg-blue-900 p-2 text-center text-xl font-bold text-white md:hover:opacity-60 md:active:scale-95'
+                        >
+                        <div className='flex aspect-square w-7 items-center justify-center'>
+                            ↑
+                        </div>
+                    </a>
+                    )}
             </main>
             
             <footer>

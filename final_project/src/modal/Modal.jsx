@@ -1,15 +1,28 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
-function Modal ({ isOpen, onClose, children }) {
+function Modal({ isOpen, onClose, children }) {
+    const [isVisible, setIsVisible] = useState(false);
 
-    useEffect(() => { function handleEscape (e) {
-        if (e.key === 'Escape') {
-            onClose();
+    useEffect(() => {
+        if (isOpen) {
+            setIsVisible(true);
+        } else {
+            const timeout = setTimeout(() => {
+                setIsVisible(false);
+            }, 300);
+            return () => clearTimeout(timeout);
         }
-        };
+    }, [isOpen]);
+
+    useEffect(() => {
+        function handleEscape(e) {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        }
 
         if (isOpen) {
-        document.addEventListener('keydown', handleEscape);
+            document.addEventListener('keydown', handleEscape);
         }
 
         return () => {
@@ -17,20 +30,24 @@ function Modal ({ isOpen, onClose, children }) {
         };
     }, [isOpen, onClose]);
 
-    if (isOpen === false) return null;
+    if (!isVisible) return null;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className='fixed inset-0 bg-black/60' onClick={onClose}></div>
+        <div className={`fixed inset-0 right-10 left-10 z-50 flex items-center justify-center transition-opacity duration-300 md:w-auto 
+            ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+            
+            <div className="fixed inset-0 -z-50 bg-black/60" onClick={onClose}></div>
 
-            <div className="relative w-auto min-w-5/12 rounded border-2 border-gray-300 bg-white p-6 shadow-lg dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300">
-                <button onClick={onClose} className="absolute top-0 right-2 text-gray-500 hover:text-black text-2xl cursor-pointer dark:hover:text-white" title="Close">
+            <div
+                className={`relative w-auto min-w-5/12 transform rounded border-2 border-gray-300 bg-white p-6 shadow-lg duration-300 dark:border-gray-600 dark:bg-gray-800 dark:text-gray-300
+                ${isOpen ? 'translate-y-0' : 'translate-y-full'}`}>
+                <button onClick={onClose} className="absolute top-0 right-2 aspect-square w-10 cursor-pointer text-2xl text-gray-500 hover:text-black dark:hover:text-white">
                 x
                 </button>
                 {children}
             </div>
         </div>
-        );
-};
+    );
+}
 
 export default Modal;
