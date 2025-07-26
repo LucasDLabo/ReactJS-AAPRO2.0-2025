@@ -94,13 +94,13 @@ function App() {
 
     const thisMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0);
 
-    const toDate = (d) => new Date(d+'T00:00:00-04:00');
-
+    const toDate = (d) => new Date(d+'T00:00:00-03:00');
+    
+    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).getTime() < today.setHours(0, 0, 0, 0));
     const todayAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === today.toDateString());
     const tomorrowAppointments = filteredAppoints.filter(a => toDate(a.date).toDateString() === tomorrow.toDateString());
     const nextDaysAppointments = filteredAppoints.filter(a => toDate(a.date) > tomorrow && toDate(a.date) <= nextDays);
     const monthAppointments = filteredAppoints.filter(a => toDate(a.date) > nextDays && toDate(a.date) <= thisMonth);
-    const pastAppointments = filteredAppoints.filter(a => toDate(a.date).getTime() < today.setHours(0, 0, 0, 0));
     const incomingAppointments = filteredAppoints.filter(a => toDate(a.date) > thisMonth);
 
 
