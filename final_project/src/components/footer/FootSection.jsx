@@ -30,7 +30,7 @@ function FootSection(){
                         </div>
                     </section>
 
-                    <form action="" className="mt-5 flex w-full flex-col items-center justify-center px-2 md:mt-0 md:px-2">
+                    <form action="" name="newsletter" className="mt-5 flex w-full flex-col items-center justify-center px-2 md:mt-0 md:px-2">
                         <h3 className="mb-1 text-center text-2xl font-bold italic md:text-3xl">Subcribe to our Newsletter!</h3>
                         <p className=" text-center">
                             Be the first to know when we launch, share updates or post something new. 
@@ -39,7 +39,7 @@ function FootSection(){
                         </p>
 
                         <div className="flex w-1/2 flex-col justify-center gap-4 md:w-3/4 md:flex-row">
-                            <input type="email" name="" id="" placeholder="Enter your email here" className="md:text-md mt-3 rounded bg-gray-600 px-2 py-1 text-center text-sm md:w-1/2"/>
+                            <input type="email" name="newsletterEmail" id="newsletterEmail" placeholder="Enter your email here" className="md:text-md mt-3 rounded bg-gray-600 px-2 py-1 text-center text-sm md:w-1/2"/>
                             <button type="submit" className="cursor-pointer rounded bg-blue-700 px-3 py-1 transition-colors hover:bg-blue-500 md:mt-3 md:w-34 dark:bg-blue-950 dark:hover:bg-blue-800" title="Confirm Subscription">Send me News!</button>
                         </div>
                     </form>
