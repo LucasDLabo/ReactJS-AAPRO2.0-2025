@@ -18,8 +18,14 @@ import FootSection from './components/footer/FootSection.jsx'
 
 function App() {
     const [appoint, setAppoint] = useState( () => {
-        const localstorage = localStorage.getItem('appointments');
-        return localstorage ? JSON.parse(localstorage) : localStorage.setItem('appointments', JSON.stringify(exampleData));
+        const saved = localStorage.getItem('appointments');
+
+        if (saved) {
+            return JSON.parse(saved);
+        }else{
+            localStorage.setItem('appointments', JSON.stringify(exampleData));
+            return exampleData;
+        }
     });
     function deleteAppoint(id){
         const updatedAppoint = appoint.filter((i) => i.id !== id);
