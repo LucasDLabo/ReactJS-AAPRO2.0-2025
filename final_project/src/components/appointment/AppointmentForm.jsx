@@ -1,4 +1,4 @@
-import { use, useState } from 'react'
+import { useState } from 'react'
 import parseLocalDate from '../../utils/parseLocalDate'
 
 function AppointmentForm( {onCreate, specialties, timetables, appoint, showToast} ){
@@ -17,7 +17,6 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint, showToast
         }
 
         const today = new Date();
-
         const selectedDate = parseLocalDate(date);
 
         if (selectedDate.getTime() <= today.getTime()) {
@@ -38,20 +37,20 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint, showToast
             <h2 className='text-xl font-bold dark:text-gray-200'>Schedule a New Appointment</h2>
             <form action="" onSubmit={submit} className='flex flex-col '>
 
-                <label htmlFor="patientName" className='dark:text-gray-300'>Patient name: </label>
+                <label htmlFor="patientName" className='dark:text-gray-300'>* Patient name: </label>
                 <input type="text" name="patientName" id="patientName" className="mb-3 border-b-2 border-blue-800"
                     placeholder='Enter patient name...'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
 
-                <label htmlFor="selectedDate" className='dark:text-gray-300'>Select Date: </label>
+                <label htmlFor="selectedDate" className='dark:text-gray-300'>* Select Date: </label>
                 <input type="date" name="selectedDate" id="selectedDate" className="mb-3 w-full border-b-2 border-blue-800 dark:bg-gray-800 dark:scheme-light-dark"
                     value={date}
                     onChange={(e) => setDatetime(e.target.value)}
                 />
 
-                <label htmlFor="selectedTime" className='dark:text-gray-300'>Select a Time: </label>
+                <label htmlFor="selectedTime" className='dark:text-gray-300'>* Select a Time: </label>
                 <select name="selectedTime" id="selectedTime" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                     value={time}
                     onChange={(e) => setTime(e.target.value)}
@@ -64,7 +63,7 @@ function AppointmentForm( {onCreate, specialties, timetables, appoint, showToast
                     }
                 </select>
 
-                <label htmlFor="selectedSpecialty" className='dark:text-gray-300'>Select Specialty: </label>
+                <label htmlFor="selectedSpecialty" className='dark:text-gray-300'>* Select Specialty: </label>
                 <select name="selectedSpecialty" id="selectedSpecialty" className='mb-3 cursor-pointer border-b-2 border-blue-800'
                     value={specialty}
                     onChange={(e) => setSpecialty(e.target.value)}

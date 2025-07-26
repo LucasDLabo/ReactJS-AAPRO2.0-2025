@@ -1,20 +1,9 @@
 import { useState } from 'react'
 import Modal from '../../modal/Modal'
 import parseLocalDate from '../../utils/parseLocalDate'
-import Toast from '../toast/Toast';
 
 
 function AppointmentList( {id, name, date, formatted_date, time, specialty, onDelete, timetables, specialties, onUpdate, appoint, showToast} ){
-
-    const createdDate = new Date(`${date}T00:00:00-04:00`);
-
-    const formattedDate = createdDate.toLocaleDateString('en-US', {
-        weekday: 'long',
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric'
-    });
-
     const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [showEditModal, setShowEditModal] = useState(false);
 
@@ -37,7 +26,6 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
         }
 
         const today = new Date();
-
         const selectedDate = parseLocalDate(getDate);
 
         if (selectedDate.getTime() <= today.getTime() && date != getDate ) {

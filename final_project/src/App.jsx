@@ -1,15 +1,20 @@
 import { useState, useEffect } from 'react'
 import './Style.css'
-import Navbar from './components/header/Navbar.jsx'
-import AppointmentList from './components/appointment/AppointmentList.jsx'
-import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
-import AppointmentForm from './components/appointment/AppointmentForm.jsx'
-import FootSection from './components/footer/FootSection.jsx'
+
 import exampleData from './utils/data.js'
 import specialties from './utils/specialties.js'
 import timetables from './utils/timetables.js'
 import dateFormatter from './utils/dateFormatter.js'
 import Toast from './components/toast/Toast.jsx'
+
+import Navbar from './components/header/Navbar.jsx'
+
+import AppointmentListContainer from './components/appointment/container/AppointmentListContainer.jsx'
+import AppointmentList from './components/appointment/AppointmentList.jsx'
+
+import AppointmentForm from './components/appointment/AppointmentForm.jsx'
+
+import FootSection from './components/footer/FootSection.jsx'
 
 function App() {
     const [appoint, setAppoint] = useState( () => {
@@ -23,7 +28,6 @@ function App() {
         showToast("Appointment deleted from the schedule", "info");
     }
     function createAppoint( {name, date, time, specialty} ){
-
         const formattedDate = dateFormatter(date);
 
         const newAppoint = {
@@ -37,7 +41,6 @@ function App() {
         setIsCreateOpen(false);
     }
     function editAppoint( {id, name, date, time, specialty} ){
-
         const formattedDate = dateFormatter(date);
 
         const editedAppoint = appoint.map((i) => 
@@ -105,12 +108,11 @@ function App() {
 
 
     const renderSection = (title, appointments) => {
-
         if (!appointments || appointments.length === 0) {
             return (
                 <>
                     <div className='flex flex-col'>
-                        <h3 className="mt-5 md:mt-0 md:px-30 font-mono text-xl font-semibold text-blue-800 italic opacity-65 dark:text-blue-900">{title}</h3>
+                        <h3 className="mt-5 font-mono text-xl font-semibold text-blue-800 italic opacity-65 md:mt-0 md:px-30 dark:text-blue-900">{title}</h3>
                         <div className='flex h-full items-center justify-center'>
                             <p className="flex h-full items-center text-center font-mono text-gray-500 italic">No appointments on this group...</p>
                         </div>
@@ -119,12 +121,10 @@ function App() {
             );
         }
         return (
-
             <div className="mt-4">
-                <h3 className="md:px-30 pb-3 font-mono text-xl font-semibold text-blue-800 italic dark:text-blue-600">{title}</h3>
+                <h3 className="pb-3 font-mono text-xl font-semibold text-blue-800 italic md:px-30 dark:text-blue-600">{title}</h3>
                 <AppointmentListContainer>
                     {appointments.map((data) => (
-                        
                             <AppointmentList 
                                 key={data.id}
                                 id={data.id}
@@ -143,11 +143,9 @@ function App() {
                                 appoint={appoint}
                                 showToast={showToast}
                             />
-                        
                     ))}
                 </AppointmentListContainer>
             </div>
-            
         );
     };
     const [toast, setToast] = useState(null);
@@ -164,11 +162,15 @@ function App() {
                 
             <main className='min-h-screen'>
                 <section className='flex flex-col items-start gap-1.5 p-2 md:mb-10 md:h-30 md:flex-row md:justify-between md:gap-0 md:px-0 lg:px-20'>
-                    
                     <div className='w-full'>
                         <h2 className='title'>Appointments List</h2>
                         <div>
-                            <button onClick={toggleCreateWindow} className={`${isCreateOpen ? 'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' : 'bg-green-600 md:hover:bg-green-800 dark:bg-green-700' } relative rounded px-2 py-1 text-white md:z-30 md:cursor-pointer md:transition-colors`} title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
+                            <button onClick={toggleCreateWindow} className={`relative rounded px-2 py-1 text-white md:z-30 md:cursor-pointer md:transition-colors 
+                                ${isCreateOpen ? 
+                                    'bg-red-500 md:hover:bg-red-700 dark:bg-red-800' 
+                                : 
+                                    'bg-green-600 md:hover:bg-green-800 dark:bg-green-700'}`}
+                                title={`${isCreateOpen ? 'Close Window' : 'Schedule a New Appointment'}`}>
                                 {isCreateOpen ? 'Close' : 'New +'}
                             </button>
                                         
@@ -196,20 +198,20 @@ function App() {
                             />
                         )}
                     </div>
-                    <div className="flex w-full flex-col justify-center md:pt-2 md:max-w-sm">
+                    <div className="flex w-full flex-col justify-center md:max-w-sm md:pt-2">
                         <input
                             type="search"
                             name='searchBar'
                             placeholder="Search by name, date, time or specialty..."
-                            className="w-full rounded border border-gray-200 text-sm md:text-lg px-4 py-1 shadow dark:bg-blue-950 dark:text-gray-200"
+                            className="w-full rounded border border-gray-200 px-4 py-1 text-sm shadow md:text-lg dark:bg-blue-950 dark:text-gray-200"
                             value={search}
                             onChange={(e) => setSearch(e.target.value)}
                         />
-                        <p className="text-sm text-gray-400 mt-1 ">
+                        <p className="mt-1 text-sm text-gray-400">
                             Tip: Use # to search by ID
                         </p>
 
-                        <div className="flex gap-4 pt-2 items-center">
+                        <div className="flex items-center gap-4 pt-2">
                             <label className="flex cursor-pointer items-center gap-2 rounded bg-gray-100 px-2 transition-colors hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700" title='Click to see all the appointments'>
                                 <input
                                 type="radio"
@@ -282,9 +284,9 @@ function App() {
                 )}
                 {showBackToTopButton && ( 
                     <a href="#top" title='Back to Top' 
-                        className='fixed right-6 bottom-6 rounded-full bg-blue-900 text-center text-xl p-2 font-bold text-white md:hover:opacity-60 md:active:scale-95'
+                        className='fixed right-6 bottom-6 rounded-full bg-blue-900 p-2 text-center text-xl font-bold text-white md:hover:opacity-60 md:active:scale-95'
                         >
-                        <div className='flex aspect-square w-7 justify-center items-center'>
+                        <div className='flex aspect-square w-7 items-center justify-center'>
                             ↑
                         </div>
                     </a>

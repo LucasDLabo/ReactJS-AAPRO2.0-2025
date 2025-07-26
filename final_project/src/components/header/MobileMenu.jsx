@@ -1,8 +1,5 @@
-import { useState } from 'react'
-
 function MobileMenu({ isOpen, onClose, children }){
     if (!isOpen) return null;
-
     return(
         <>
             <section>
