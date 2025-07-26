@@ -60,6 +60,7 @@ function AppointmentList( {id, name, date, formatted_date, time, specialty, onDe
         setDate(date);
         setTime(time);
         setSpecialty(specialty);
+        showToast("Changes reverted", "raw");
     }
 
     return (
