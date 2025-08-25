@@ -16,6 +16,8 @@ import AppointmentForm from './components/appointment/AppointmentForm.jsx'
 
 import FootSection from './components/footer/FootSection.jsx'
 
+import FloatingGithubLink from './components/FloatingGithubLink.jsx'
+
 function App() {
     const [appoint, setAppoint] = useState( () => {
         const saved = localStorage.getItem('appointments');
@@ -302,6 +304,8 @@ function App() {
             <footer>
                 <FootSection />
             </footer>
+
+            <FloatingGithubLink />
         </>
     )
 }
