@@ -13,7 +13,7 @@ A modern and intuitive web application for managing medical appointments. Built 
 - 🔥 **Toast Notifications** for visual feedback on user actions such as creating, updating, or deleting appointments.
 - 🧪 **Dynamic Mock Data** that auto-update daily to ensure realistic consistent sample content and design every time you visit the site.
 - 🖼️ **Full Responsive Design** for mobile, tablet, and desktop using Tailwind CSS with a mobile-first approach.
-- 🐳 **Dockerized Setup** for easy project launch. Just clone the reposiitory and run `docker compose-up --build`.
+- 🐳 **Dockerized Setup** for easy project launch. Just clone the repository and run `docker-compose up --build`.
 
 ## 🚀 Live Demo
 
